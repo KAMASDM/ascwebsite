@@ -70,6 +70,16 @@ function CrmerpService() {
                 ))}
             </Grid>
 
+
+            <Grid container spacing={4} sx={{ p: 4 }}>
+            <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
+                <CRMERPEnquiryForm />
+                <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
+                    Close
+                </Button>
+            </Dialog>
+            </Grid>  
+
             <Typography variant="h4" sx={{ mt: 6, mb: 2, textAlign: 'center' }}>Industry-wise Solutions</Typography>
             <Grid container spacing={4} sx={{ p: 4 }}>
                 {industries.map((industry, index) => (
@@ -84,13 +94,8 @@ function CrmerpService() {
                     </Grid>
                 ))}
             </Grid>
-
-            <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
-                <CRMERPEnquiryForm />
-                <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
-                    Close
-                </Button>
-            </Dialog>            
+            
+                      
             
 
             <Box sx={{ my: 4, p: 4, textAlign: 'center', bgcolor: 'background.paper' }}>

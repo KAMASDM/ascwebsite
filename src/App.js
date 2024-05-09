@@ -9,8 +9,11 @@ import SEOService from './pages/SEOService';
 import WebDevelopmentComponent from './pages/WebDevelopmentComponent';
 import EnquiryForm from './components/tools/EnquiryForm';
 import ECommerceSolutionsComponent from './pages/ECommerceSolutionsComponent';
-import CrmerpService from './pages/CrmerpService';
 import CRMERPEnquiryForm from './components/tools/CRMERPEnquiryForm';
+import CrmerpServices from './pages/CrmerpServices';
+import MobileAppService from './pages/MobileAppService';
+import HostingServiceComponent from './pages/HostingServiceComponent';
+import ContactUsComponent from './components/tools/ContactUsComponent';
 
 
 function App() {
@@ -23,13 +26,14 @@ function App() {
         <Route path="/" element={<ServicesComponent />} />
         <Route path="/seo" element={<SEOService />} />
         <Route path="/web-development" element={<WebDevelopmentComponent />} />
-        
-                <Route path="/web-development/enquiry" element={<EnquiryForm />} />
-                <Route path="/ecommerce" element={<ECommerceSolutionsComponent />} />
-                <Route path="/ecommerce/enquiry" element={<EnquiryForm />} />
-                <Route path="/crm-erp" element={<CrmerpService />} />
-                {/* <Route path="/CRMERPEnquiryForm" element={<CRMERPEnquiryForm />} /> */}
-
+        <Route path="/web-development/enquiry" element={<EnquiryForm />} />
+        <Route path="/ecommerce" element={<ECommerceSolutionsComponent />} />
+        <Route path="/ecommerce/enquiry" element={<EnquiryForm />} />
+        <Route path="/crm-erp" element={<CrmerpServices />} />
+        <Route path="/CRMERPEnquiryForm" element={<CRMERPEnquiryForm />} />
+        <Route path="/mobile-app" element={<MobileAppService />} />
+        <Route path="/hosting" element={<HostingServiceComponent />} />
+        <Route path="/contact-us" element={<ContactUsComponent />} />
 
    
 
