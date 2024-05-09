@@ -19,7 +19,7 @@ import SolutionsIcon from "@mui/icons-material/Extension";
 import BlogIcon from "@mui/icons-material/MenuBook";
 import AboutUsComponent from "../../pages/AboutUsPage";
 import ServiceSection from "../../pages/ServiceSection";
-import SolutionsComponent from "../../pages/SolutionsComponent";
+import SolutionsComponent from "./SolutionsComponent";
 import BlogComponent from "../../pages/BlogComponent";
 import SimpleBreadcrumbs from "./SimpleBreadcrumbs";
 import ContactUsComponent from "../tools/ContactUsComponent";

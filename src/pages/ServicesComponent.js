@@ -1,7 +1,10 @@
 import React from 'react';
-import { Typography, Container, Paper, Grid, Card, CardActionArea, CardMedia, CardContent, Button } from '@mui/material';
+import { Typography, Container, Paper, Grid, Card, CardActionArea, CardMedia, CardContent, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
+import SolutionsComponent from '../components/common/SolutionsComponent';
+import AboutUsComponent from '../components/common/AboutUsComponent';
+import BlogComponent from './BlogComponent';
 
 // Custom styled button
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -56,12 +59,36 @@ function ServicesComponent() {
     ];
 
     return (
-        <Container maxWidth="lg">
-            <Paper elevation={6} sx={{ p: 4, m: 2, borderRadius: '15px', backdropFilter: 'blur(15px)' }}>
-                <Typography variant="h4" component="h2" gutterBottom align="center" color="primary">
-                    Our Services
+        <Box sx={{ width: '100%', overflowX: 'hidden' }}>
+            <Box sx={{
+                my: 4,
+                textAlign: "center",
+                p: 5,
+                backgroundImage:
+                  'url("https://source.unsplash.com/random/1920x1080")',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                color: "common.white",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                borderRadius: "12px",
+                alignItems: "center",
+                height: "40vh", // Full viewport height
+            }}>
+                <Typography variant="h2" gutterBottom>
+                    We dont just Offer Services, We Offer Solutions
                 </Typography>
-                <Grid container spacing={4} justifyContent="center">
+                <Typography variant="h5">
+                    Delivering excellence and innovation across all our service areas.
+                </Typography>
+            </Box>
+
+            <Container maxWidth={false} disableGutters>
+            <Typography variant="h2" gutterBottom align='center'>
+                    Explore Our Services
+                </Typography>
+                <Grid container spacing={4} sx={{ p: 4 }}>
                     {services.map((service, index) => (
                         <Grid item xs={12} sm={6} md={4} key={index}>
                             <Card raised sx={{
@@ -74,6 +101,7 @@ function ServicesComponent() {
                                 },
                                 bgcolor: 'background.paper'
                             }}>
+                                
                                 <CardActionArea onClick={() => navigate(service.link)}>
                                     <CardMedia
                                         component="img"
@@ -98,8 +126,12 @@ function ServicesComponent() {
                         </Grid>
                     ))}
                 </Grid>
-            </Paper>
-        </Container>
+
+                <SolutionsComponent />
+                <AboutUsComponent />
+                <BlogComponent />
+            </Container>
+        </Box>
     );
 }
 

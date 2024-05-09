@@ -14,6 +14,8 @@ import CrmerpServices from './pages/CrmerpServices';
 import MobileAppService from './pages/MobileAppService';
 import HostingServiceComponent from './pages/HostingServiceComponent';
 import ContactUsComponent from './components/tools/ContactUsComponent';
+import SolutionsPage from './pages/SolutionsPage';
+
 
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
-        <Route path="/" element={<ServicesComponent />} />
+        <Route path="/services" element={<ServicesComponent />} />
         <Route path="/seo" element={<SEOService />} />
         <Route path="/web-development" element={<WebDevelopmentComponent />} />
         <Route path="/web-development/enquiry" element={<EnquiryForm />} />
@@ -34,6 +36,7 @@ function App() {
         <Route path="/mobile-app" element={<MobileAppService />} />
         <Route path="/hosting" element={<HostingServiceComponent />} />
         <Route path="/contact-us" element={<ContactUsComponent />} />
+        <Route path="/solutions" element={<SolutionsPage />} />
 
    
 

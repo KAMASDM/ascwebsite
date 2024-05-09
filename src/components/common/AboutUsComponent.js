@@ -15,8 +15,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import BusinessIcon from "@mui/icons-material/Business";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import GroupIcon from "@mui/icons-material/Group";
-import TestimonialComponent from "./TestimonialComponent";
-import ContactUsComponent from "../components/tools/ContactUsComponent";
+
 
 function AboutUsComponent() {
   return (
@@ -167,33 +166,10 @@ function AboutUsComponent() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} marginTop={3}>
-          <TestimonialComponent />
-        </Grid>
-        <Grid item xs={12}  marginTop={3}  >
-        <Card
-            raised
-            sx={{
-              minHeight: 300,
-              backgroundColor: "rgba(255, 255, 255, 0.8)",
-              backdropFilter: "blur(10px)",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              borderRadius: "16px",
-            }}
-          >
-            <CardContent>
-            <Typography variant="h5" component="div" gutterBottom>
-                      Contact Us Today              
-                      </Typography>
-          <ContactUsComponent />
-            </CardContent>
-            </Card>
-        </Grid>
 
-
-      </Grid>
-    </Paper>
-  );
+        </Grid>
+        </Paper>
+    );
 }
 
 export default AboutUsComponent;
