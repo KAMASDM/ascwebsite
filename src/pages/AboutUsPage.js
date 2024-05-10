@@ -16,10 +16,12 @@ import BusinessIcon from "@mui/icons-material/Business";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import GroupIcon from "@mui/icons-material/Group";
 import TestimonialComponent from "./TestimonialComponent";
-import ContactUsComponent from "../components/tools/ContactUsComponent";
+import { ThemeProvider } from "@mui/system";
+import theme from "../theme";
 
 function AboutUsComponent() {
   return (
+    <ThemeProvider theme={theme}>
     <Paper
       elevation={3}
       sx={{
@@ -171,7 +173,7 @@ function AboutUsComponent() {
           <TestimonialComponent />
         </Grid>
         <Grid item xs={12}  marginTop={3}  >
-        <Card
+        {/* <Card
             raised
             sx={{
               minHeight: 300,
@@ -187,12 +189,13 @@ function AboutUsComponent() {
                       </Typography>
           <ContactUsComponent />
             </CardContent>
-            </Card>
+            </Card> */}
         </Grid>
 
 
       </Grid>
     </Paper>
+    </ThemeProvider>
   );
 }
 

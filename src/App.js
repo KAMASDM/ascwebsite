@@ -13,8 +13,11 @@ import CRMERPEnquiryForm from './components/tools/CRMERPEnquiryForm';
 import CrmerpServices from './pages/CrmerpServices';
 import MobileAppService from './pages/MobileAppService';
 import HostingServiceComponent from './pages/HostingServiceComponent';
-import ContactUsComponent from './components/tools/ContactUsComponent';
+import ContactUsComponent from './components/common/ContactUsComponent';
 import SolutionsPage from './pages/SolutionsPage';
+import CaseStudyPage from './pages/CaseStudyPage';
+import BlogComponent from './pages/BlogComponent';
+import CareersComponent from './components/common/CareersComponent';
 
 
 
@@ -37,6 +40,10 @@ function App() {
         <Route path="/hosting" element={<HostingServiceComponent />} />
         <Route path="/contact-us" element={<ContactUsComponent />} />
         <Route path="/solutions" element={<SolutionsPage />} />
+        <Route path="/case-studies" element={<CaseStudyPage />} />
+        <Route path="/blog" element={<BlogComponent />} />
+        <Route path="/careers" element={<CareersComponent />} />
+
 
    
 

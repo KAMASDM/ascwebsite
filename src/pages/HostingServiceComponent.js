@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HostingEnquiryForm from '../components/tools/HostingEnquiryForm';
 import TestimonialComponent from './TestimonialComponent';
-import ContactUsComponent from '../components/tools/ContactUsComponent';
+import ContactUsComponent from '../components/common/ContactUsComponent';
 
 function HostingServiceComponent() {
 

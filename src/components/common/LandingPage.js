@@ -22,7 +22,6 @@ import ServiceSection from "../../pages/ServiceSection";
 import SolutionsComponent from "./SolutionsComponent";
 import BlogComponent from "../../pages/BlogComponent";
 import SimpleBreadcrumbs from "./SimpleBreadcrumbs";
-import ContactUsComponent from "../tools/ContactUsComponent";
 
 const theme = createTheme({
   components: {
@@ -31,18 +30,33 @@ const theme = createTheme({
         maxWidth: false,
       },
     },
+    MuiCard: { // Styling all cards uniformly
+      styleOverrides: {
+        root: {
+          borderRadius: 8, // consistent rounded corners
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // subtle shadow
+          borderColor: '#e0e0e0', // soft border color
+          borderWidth: 1,
+          borderStyle: 'solid',
+          '&:hover': {
+            boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)', // enhanced shadow on hover
+          },
+        }
+      }
+    }
   },
   palette: {
     background: {
       default: "#f5f5f5",
     },
     primary: {
-      main: "#123456", // A more professional dark blue
+      main: "#123456", // A professional dark blue
     },
     secondary: {
       main: "#789ABC", // A complementary soft blue
     },
   },
+  spacing: 4, // Default spacing for padding and margins
   typography: {
     fontFamily: "Poppins, sans-serif",
     h2: {
@@ -69,17 +83,15 @@ function LandingPage() {
             my: 4,
             textAlign: "center",
             p: 5,
-            backgroundImage:
-              'url("https://source.unsplash.com/random/1920x1080")',
+            backgroundImage: 'url("https://source.unsplash.com/random/1920x1080")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             color: "common.white",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            borderRadius: "12px",
             alignItems: "center",
-            height: "40vh", // Full viewport height
+            height: "40vh",
           }}
         >
           <Typography variant="h2" gutterBottom component="h1">
@@ -112,9 +124,6 @@ function LandingPage() {
           <Grid item xs={12}>
             <BlogComponent />
           </Grid>
-          <Grid item xs={12}>
-            <ContactUsComponent />
-          </Grid>
         </Grid>
 
         {isMobile && (
@@ -126,7 +135,7 @@ function LandingPage() {
               width: "100%",
               position: "fixed",
               bottom: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.7)", // Darker for better legibility
+              backgroundColor: 'rgba(0, 51, 102, 0.8)', 
               color: "white",
               "& .Mui-selected": { color: theme.palette.primary.main },
             }}
@@ -162,5 +171,4 @@ function LandingPage() {
     </ThemeProvider>
   );
 }
-
 export default LandingPage;
