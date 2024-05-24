@@ -7,31 +7,49 @@ import {
   CardContent,
   Avatar,
 } from "@mui/material";
+import person1 from "../../Images/testi_1.png";
+import person2 from "../../Images/testi_2.png";
 
 const testimonials = [
   {
-    name: "Jane Doe",
-    designation: "Marketing Director",
-    company: "Tech Solutions",
-    image: "https://source.unsplash.com/random/100x100?person1",
+    name: "Pratik Das",
+    designation: "-",
+    company: "-",
+    image: person1,
     testimonial:
-      "Thanks to their expert team and cutting-edge strategies, our site traffic has doubled and sales have increased exponentially.",
+      "It was absolutely amazing to interact with Jeegar at Anant Soft Computing. They are extremely professional in their work ethics and process and upfront about costs and Timelines. Was a great experience. Thank you Anant Soft Computing Team.",
   },
   {
-    name: "John Smith",
-    designation: "CEO",
-    company: "Innovate Startups",
-    image: "https://source.unsplash.com/random/100x100?person2",
+    name: "Sandip Patel",
+    designation: "Director",
+    company: "Espi Visa Consultants Pvt Ltd",
+    image: person2,
     testimonial:
-      "Their tailored SEO services have not only improved our visibility but also helped us gain a competitive edge in our industry.",
+      "I have given my LMS work to Anant soft Computing . Anant Soft Computing team had given nice support to us . The founder & CEO , Mr. Jigar Desai is personally involved in every project and also giving nice suggestion in each and every architect of system.",
   },
   {
-    name: "Alice Johnson",
-    designation: "Product Manager",
-    company: "Creative Ventures",
-    image: "https://source.unsplash.com/random/100x100?person3",
+    name: "Jimish Sura",
+    designation: "-",
+    company: "-",
+    image: person1,
     testimonial:
-      "They provided us with incredible insights into our website's performance that drove our strategies forward effectively.",
+      "Anant Soft assisted with analysis of requirements, technology feasibility, design and development of various IT projects implemented in Conart. And deliver multiple projects successfully on time.",
+  },
+  {
+    name: "Milind Dave",
+    designation: "-",
+    company: "-",
+    image: person2,
+    testimonial:
+      "Best web development company in Vadodara and the colleagues are open to sharing knowledge and real-time solutions with each other.",
+  },
+  {
+    name: "Pujan Shah",
+    designation: "-",
+    company: "SP Mortgages Pvt Ltd",
+    image: person1,
+    testimonial:
+      "I have engaged Anant soft Computing for revamping our existing website and to design a unique dashboard for our clients use. Also, I have felt overall service and communication to satisfactory level especially when I am dealing from Australia.",
   },
 ];
 

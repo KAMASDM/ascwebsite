@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   Typography,
@@ -7,22 +8,21 @@ import {
   Button,
   Box,
 } from "@mui/material";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
 
 const Careers = () => {
-  const [formData, setFormData] = useState({
+  const initialState = {
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    birthDate: null,
     education: "",
     experience: "",
     skills: "",
     resume: null,
-  });
+  };
+
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState(initialState);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,22 +32,36 @@ const Careers = () => {
     }));
   };
 
-  const handleDateChange = (value) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      birthDate: value,
-    }));
-  };
-
-  const handleFileChange = (event) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      resume: event.target.files[0],
-    }));
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const data = new FormData();
+
+    data.append("firstName", formData.firstName);
+    data.append("lastName", formData.lastName);
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    data.append("education", formData.education);
+    data.append("experience", formData.experience);
+    data.append("skills", formData.skills);
+    data.append("resume", formData.resume);
+
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbwTsAryqmZZsCcwX3blAm0PtC8sqD2j9YDYEXDRXx8BJeVMdc1K2de7ayNdYdGzlNKz/exec",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      if (response.ok) {
+        setFormData(initialState);
+        navigate("/");
+      } else {
+        throw new Error("Some Problem Occurred. Please try again!");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -99,16 +113,6 @@ const Careers = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DatePicker
-                label="Date of Birth"
-                value={formData.birthDate}
-                onChange={handleDateChange}
-                renderInput={(params) => <TextField fullWidth {...params} />}
-              />
-            </LocalizationProvider>
-          </Grid>
-          <Grid item xs={12}>
             <TextField
               required
               fullWidth
@@ -146,12 +150,12 @@ const Careers = () => {
           <Grid item xs={12}>
             <Button variant="contained" component="label">
               Upload Resume
-              <input type="file" hidden onChange={handleFileChange} />
+              <input type="file" name="resume" hidden onChange={handleChange} />
             </Button>
           </Grid>
           <Grid item xs={12}>
             <Button type="submit" fullWidth variant="contained" color="primary">
-              Submit Application
+              Submit
             </Button>
           </Grid>
         </Grid>
