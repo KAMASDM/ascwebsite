@@ -19,6 +19,7 @@ import OurService from "../components/OurService/OurService";
 import OurSolution from "../components/OurSolution/OurSolution";
 import AboutUs from "./AboutUs";
 import Blog from "./Blog";
+import backImage from "../Images/backImage.jpeg"
 
 const theme = createTheme({
   components: {
@@ -74,7 +75,7 @@ function LandingPage() {
       <Box
         sx={{
           backgroundImage:
-            'url("https://source.unsplash.com/random/1920x1080")',
+            'url("https://source.unsplash.com/random/1920x1080?company")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",

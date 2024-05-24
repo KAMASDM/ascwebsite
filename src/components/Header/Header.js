@@ -22,10 +22,8 @@ const Header = () => {
 
   const menuItems = [
     { text: "Home", link: "/" },
-    { text: "About Us", link: "/about-us" },
     { text: "Services", link: "/services" },
     { text: "Solutions", link: "/solutions" },
-    { text: "Case Studies", link: "/case-studies" },
     { text: "Blog", link: "/blog" },
     { text: "Careers", link: "/careers" },
     { text: "Contact Us", link: "/contact-us" },
@@ -58,7 +56,7 @@ const Header = () => {
       <AppBar
         position="sticky"
         sx={{
-          backgroundColor: "rgba(0, 51, 102, 0.6)",
+          backgroundColor: "#1976d2",
           backdropFilter: "blur(10px)",
           borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
           borderRadius: "12px",
