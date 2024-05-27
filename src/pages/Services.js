@@ -20,28 +20,28 @@ const Services = () => {
       description:
         "Optimize your online presence with our expert SEO strategies that boost your rankings and visibility.",
       imageUrl: "https://source.unsplash.com/random/300x200?seo",
-      link: "/seo",
+      link: "/SEO",
     },
     {
       name: "Web Development",
       description:
         "Build responsive and dynamic websites tailored to meet your business needs.",
       imageUrl: "https://source.unsplash.com/random/300x200?webdev",
-      link: "/web-development",
+      link: "/Web-Development",
     },
     {
       name: "E-Commerce Solutions",
       description:
         "Create robust e-commerce platforms that provide seamless shopping experiences.",
       imageUrl: "https://source.unsplash.com/random/300x200?ecommerce",
-      link: "/ecommerce",
+      link: "/E-Commerce-Solutions",
     },
     {
       name: "Mobile App Development",
       description:
         "Develop high-performance mobile applications for iOS and Android platforms.",
       imageUrl: "https://source.unsplash.com/random/300x200?mobileApp",
-      link: "/mobile-app",
+      link: "/Mobile-App-Development",
     },
     {
       name: "Digital Marketing",
@@ -80,7 +80,7 @@ const Services = () => {
         </Typography>
       </Box>
 
-      <Typography variant="h4" sx={{ mt: 6, mb: 2, textAlign: "center" }}>
+      <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
         Explore Our Services
       </Typography>
 

@@ -19,7 +19,7 @@ import OurService from "../components/OurService/OurService";
 import OurSolution from "../components/OurSolution/OurSolution";
 import AboutUs from "./AboutUs";
 import Blog from "./Blog";
-import backImage from "../Images/backImage.jpeg"
+import backImage from "../Images/ASC/asc.jpeg";
 
 const theme = createTheme({
   components: {
@@ -74,8 +74,7 @@ function LandingPage() {
     <Container maxWidth="xl">
       <Box
         sx={{
-          backgroundImage:
-            'url("https://source.unsplash.com/random/1920x1080?company")',
+          backgroundImage: `url(${backImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",
@@ -89,11 +88,11 @@ function LandingPage() {
         <Typography variant="h5">
           Innovating solutions for tomorrow's challenges.
         </Typography>
-        <Button variant="contained" color="primary" size="large">
+        <Button variant="contained" color="primary" size="large" sx={{ mt: 3 }}>
           Learn More
         </Button>
       </Box>
-      <Grid container spacing={4} sx={{ px: 3, py: 5 }}>
+      <Grid container spacing={4}>
         <Grid item xs={12}>
           <OurService />
         </Grid>

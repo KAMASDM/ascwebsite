@@ -4,7 +4,6 @@ import {
   Step,
   StepLabel,
   Button,
-  Typography,
   Container,
   TextField,
   FormControl,
@@ -12,51 +11,24 @@ import {
   FormControlLabel,
   Radio,
   Box,
+  Typography,
 } from "@mui/material";
 import { toast } from "react-toastify";
 
-const steps = [
-  "Contact Information",
-  "App Specifications",
-  "Additional Services",
-];
+const steps = ["Basic Information", "Project Details", "Additional Services"];
 
 const initialState = {
   name: "",
   email: "",
   phone: "",
-  appType: "",
+  projectType: "",
   additionalService: "",
 };
 
-const MobileAppEnquiryForm = ({ handleClose }) => {
-  const [activeStep, setActiveStep] = useState(0);
+const WebDevelopmentForm = ({ handleClose }) => {
   const [form, setForm] = useState(initialState);
+  const [activeStep, setActiveStep] = useState(0);
   const [errors, setErrors] = useState({});
-
-  const validateContactInfo = () => {
-    const contactErrors = {};
-    if (!form.name.trim()) contactErrors.name = "Name is required";
-    if (!form.email.trim()) contactErrors.email = "Email is required";
-    if (!form.phone.trim()) contactErrors.phone = "Phone is required";
-    setErrors(contactErrors);
-    return Object.keys(contactErrors).length === 0;
-  };
-
-  const validateAppSpecifications = () => {
-    const appErrors = {};
-    if (!form.appType) appErrors.appType = "App type is required";
-    setErrors(appErrors);
-    return Object.keys(appErrors).length === 0;
-  };
-
-  const validateAdditionalServices = () => {
-    const additionalErrors = {};
-    if (!form.additionalService)
-      additionalErrors.additionalService = "Additional service is required";
-    setErrors(additionalErrors);
-    return Object.keys(additionalErrors).length === 0;
-  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -66,23 +38,17 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
     }));
   };
 
-  const handleNext = () => {
-    let isValid = false;
-    if (activeStep === 0) {
-      isValid = validateContactInfo();
-    } else if (activeStep === 1) {
-      isValid = validateAppSpecifications();
-    } else if (activeStep === 2) {
-      isValid = validateAdditionalServices();
+  const validateStep = (step) => {
+    const newErrors = {};
+    if (step === 0) {
+      if (!form.name.trim()) newErrors.name = "Name is required";
+      if (!form.email.trim()) newErrors.email = "Email is required";
+      if (!form.phone.trim()) newErrors.phone = "Phone is required";
+    } else if (step === 1) {
+      if (!form.projectType) newErrors.projectType = "Project type is required";
     }
-
-    if (isValid) {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    }
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleReset = () => {
@@ -99,12 +65,12 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
     data.append("name", form.name);
     data.append("email", form.email);
     data.append("phone", form.phone);
-    data.append("appType", form.appType);
+    data.append("projectType", form.projectType);
     data.append("additionalService", form.additionalService);
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyp_KnOJASiVFNt8IOd4F14aNfe5_JjALw_Mdfvgz9PbrDd52IViv8Z4hNcfCFGICQJ/exec",
+        "https://script.google.com/macros/s/AKfycbxbKivT2d46sdxCruIxahIvnJRPnjKcppNQA23rVnm_htQu6NYRTtrsnOkpgTXU6cpuNw/exec",
         {
           method: "POST",
           body: data,
@@ -121,10 +87,20 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
     }
   };
 
+  const handleNext = () => {
+    if (validateStep(activeStep)) {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
   return (
     <Container>
       <Typography variant="h5" align="center" sx={{ mt: 4, mb: 2 }}>
-        Mobile App Enquiry Form
+        Web Development Enquiry Form
       </Typography>
       <Stepper
         sx={{ marginBottom: 2 }}
@@ -148,7 +124,6 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
                 onChange={handleChange}
                 fullWidth
                 margin="normal"
-                variant="outlined"
                 error={!!errors.name}
                 helperText={errors.name}
               />
@@ -160,7 +135,6 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
                 onChange={handleChange}
                 fullWidth
                 margin="normal"
-                variant="outlined"
                 error={!!errors.email}
                 helperText={errors.email}
               />
@@ -171,7 +145,6 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
                 onChange={handleChange}
                 fullWidth
                 margin="normal"
-                variant="outlined"
                 error={!!errors.phone}
                 helperText={errors.phone}
               />
@@ -179,47 +152,37 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
           )}
           {activeStep === 1 && (
             <Box display="flex" justifyContent="center">
-              <FormControl component="fieldset">
+              <FormControl component="fieldset" margin="normal">
                 <RadioGroup
                   row
-                  name="appType"
-                  value={form.appType}
+                  name="projectType"
+                  value={form.projectType}
                   onChange={handleChange}
                 >
                   <FormControlLabel
-                    value="Business"
-                    control={<Radio />}
-                    label="Business"
-                  />
-                  <FormControlLabel
-                    value="Educational"
-                    control={<Radio />}
-                    label="Educational"
-                  />
-                  <FormControlLabel
-                    value="E-commerce"
+                    value="ecommerce"
                     control={<Radio />}
                     label="E-commerce"
                   />
                   <FormControlLabel
-                    value="Health & Fitness"
+                    value="business"
                     control={<Radio />}
-                    label="Health & Fitness"
+                    label="Business Website"
                   />
                   <FormControlLabel
-                    value="Social Media"
+                    value="portfolio"
                     control={<Radio />}
-                    label="Social Media"
+                    label="Portfolio Website"
                   />
                   <FormControlLabel
-                    value="Other"
+                    value="other"
                     control={<Radio />}
                     label="Other"
                   />
                 </RadioGroup>
-                {errors.appType && (
+                {errors.projectType && (
                   <Typography variant="body2" color="error">
-                    {errors.appType}
+                    {errors.projectType}
                   </Typography>
                 )}
               </FormControl>
@@ -235,26 +198,16 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
                   onChange={handleChange}
                 >
                   <FormControlLabel
-                    value="Push Notifications"
+                    value="Search Engine Optimization (SEO)"
                     control={<Radio />}
-                    label="Push Notifications"
+                    label="Search Engine Optimization (SEO)"
                   />
                   <FormControlLabel
-                    value="Multi Language Support"
+                    value="Ongoing Maintenance"
                     control={<Radio />}
-                    label="Multi Language Support"
-                  />
-                  <FormControlLabel
-                    value="Payment Integration"
-                    control={<Radio />}
-                    label="Payment Integration"
+                    label="Ongoing Maintenance"
                   />
                 </RadioGroup>
-                {errors.additionalService && (
-                  <Typography variant="body2" color="error">
-                    {errors.additionalService}
-                  </Typography>
-                )}
               </FormControl>
             </Box>
           )}
@@ -286,4 +239,4 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
   );
 };
 
-export default MobileAppEnquiryForm;
+export default WebDevelopmentForm;

@@ -10,7 +10,6 @@ import {
   Box,
   Dialog,
 } from "@mui/material";
-import Testimonial from "../Testimonial/Testimonial";
 import ECommerceEnquiryForm from "../Forms/ECommerceEnquiryForm";
 
 const ECommerce = () => {
@@ -82,7 +81,7 @@ const ECommerce = () => {
   ];
 
   return (
-    <Container maxWidth="xl" sx={{ my: 4 }}>
+    <Container maxWidth="xl" disableGutters>
       <Box
         sx={{
           backgroundImage:
@@ -132,17 +131,17 @@ const ECommerce = () => {
       </Button>
 
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
-        <ECommerceEnquiryForm />
+        <ECommerceEnquiryForm handleClose={handleClose} />
         <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
           Close
         </Button>
       </Dialog>
 
-      <Typography variant="h4" sx={{ mt: 6, mb: 2, textAlign: "center" }}>
+      <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
         Our Projects
       </Typography>
 
-      <Grid container spacing={4}>
+      <Grid container spacing={4} justifyContent="center" sx={{ mb: 4 }}>
         {ecommerceProjects.map((project, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card raised sx={{ height: "100%" }}>
@@ -164,7 +163,6 @@ const ECommerce = () => {
           </Grid>
         ))}
       </Grid>
-      <Testimonial />
     </Container>
   );
 };

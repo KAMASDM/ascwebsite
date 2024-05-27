@@ -8,49 +8,55 @@ import {
   Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import SEO from "../../Images/Our Services/SEO Service.png"
+import WebDevelopment from "../../Images/Our Services/Smart Web Development.jpg"
+import ECommerce from "../../Images/Our Services/E-Commerce Solutions.png"
+import CrmErp from "../../Images/Our Services/CRM  ERP Development.jpg"
+import MobileAppDevelopment from "../../Images/Our Services/Mobile Application Development.jpg"
+import Hositng from "../../Images/Our Services/host.png"
 
 const services = [
   {
     name: "SEO",
     description:
       "Optimize your online presence with bespoke SEO strategies that boost your rankings and visibility.",
-    image: "https://source.unsplash.com/random/300x200?seo",
-    link: "/seo",
+    image: SEO,
+    link: "/SEO",
   },
   {
     name: "Smart Web Development",
     description:
       "Develop intelligent, responsive websites tailored to your business needs.",
-    image: "https://source.unsplash.com/random/300x200?webdev",
-    link: "/web-development",
+    image: WebDevelopment,
+    link: "/Web-Development",
   },
   {
     name: "E-Commerce Solutions",
     description:
       "Launch powerful online stores with a seamless shopping experience that drives sales.",
-    image: "https://source.unsplash.com/random/300x200?ecommerce",
-    link: "/ecommerce",
+    image: ECommerce,
+    link: "/E-Commerce-Solutions",
   },
   {
     name: "CRM / ERP Development",
     description:
       "Implement robust systems that streamline operations and enhance organizational efficiency.",
-    image: "https://source.unsplash.com/random/300x200?crm",
-    link: "/crm-erp",
+    image: CrmErp,
+    link: "/CRM-ERP-Development",
   },
   {
     name: "Mobile Application Development",
     description:
       "Create compelling mobile applications that provide excellent user experiences across all devices.",
-    image: "https://source.unsplash.com/random/300x200?mobileApp",
-    link: "/mobile-app",
+    image: MobileAppDevelopment,
+    link: "/Mobile-App-Development",
   },
   {
     name: "Hosting",
     description:
       "Reliable and secure hosting services to ensure your online operations are smooth and uninterrupted.",
-    image: "https://source.unsplash.com/random/300x200?hosting",
-    link: "/hosting",
+    image: Hositng,
+    link: "/Hosting",
   },
 ];
 

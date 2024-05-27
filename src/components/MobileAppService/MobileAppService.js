@@ -85,7 +85,7 @@ const MobileAppService = () => {
   };
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" disableGutters>
       <Box
         sx={{
           backgroundImage:
@@ -106,12 +106,12 @@ const MobileAppService = () => {
         </Typography>
       </Box>
 
-      <Typography variant="h4" sx={{ mt: 6, mb: 2, textAlign: "center" }}>
+      <Typography variant="h4" sx={{ mt: 4, textAlign: "center" }}>
         Our Mobile Development Services
       </Typography>
 
       <Box sx={{ my: 4 }}>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} justifyContent="center" alignItems="center">
           {services.map((service, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card raised sx={{ height: "100%" }}>
@@ -142,12 +142,18 @@ const MobileAppService = () => {
         Request Mobile App Development Consultation
       </Button>
 
-      <Typography variant="h4" sx={{ mt: 6, mb: 2, textAlign: "center" }}>
+      <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
         Our Solutions
       </Typography>
 
       <Box sx={{ my: 4 }}>
-        <Grid container spacing={4}>
+        <Grid
+          container
+          spacing={4}
+          justifyContent="center"
+          alignItems="center"
+          sx={{ mb: 4 }}
+        >
           {mobileAppTypes.map((type, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card raised sx={{ height: "100%" }}>
@@ -172,7 +178,7 @@ const MobileAppService = () => {
       </Box>
 
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
-        <MobileAppEnquiryForm />
+        <MobileAppEnquiryForm handleClose={handleClose} />
         <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
           Close
         </Button>

@@ -1,9 +1,6 @@
 import React from "react";
 import { Typography, Container, Box } from "@mui/material";
-import OurService from "../components/OurService/OurService";
 import OurSolution from "../components/OurSolution/OurSolution";
-import AboutUs from "./AboutUs";
-import Blog from "./Blog";
 
 const Solutions = () => {
   return (
@@ -29,11 +26,8 @@ const Solutions = () => {
         </Typography>
       </Box>
       <OurSolution />
-      <OurService />
-      <AboutUs />
-      <Blog />
     </Container>
   );
-}
+};
 
 export default Solutions;

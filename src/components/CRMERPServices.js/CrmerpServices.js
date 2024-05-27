@@ -74,70 +74,87 @@ const industries = [
 
 const CRMERPService = () => {
   const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Container maxWidth="xl" disableGutters>
       <Box
         sx={{
-          p: 6,
-          textAlign: "center",
           backgroundImage:
-            'url("https://source.unsplash.com/random/1920x1080?business")',
+            'url("https://source.unsplash.com/random/1920x1080?webdevelopment")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",
+          textAlign: "center",
+          p: 6,
           borderRadius: "12px",
           overflow: "hidden",
         }}
       >
-        <Typography variant="h3" gutterBottom>
-          CRM & ERP Solutions
-        </Typography>
-        <Typography variant="h6">
+        <Typography variant="h2">CRM & ERP Solutions</Typography>
+        <Typography variant="h5">
           Empowering businesses to streamline processes and improve efficiency.
         </Typography>
       </Box>
 
-      <Grid container spacing={4} sx={{ p: 4 }}>
-        {services.map((service, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card raised sx={{ height: "100%" }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image={service.imageUrl}
-                alt={service.name}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  {service.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {service.description}
-                </Typography>
-                <Button variant="contained" color="primary" sx={{ mt: 2 }}>
-                  Learn More
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-
-      <Grid container spacing={4} sx={{ p: 4 }}>
-        <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
-          <CRMERPEnquiryForm />
-          <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
-            Close
-          </Button>
-        </Dialog>
-      </Grid>
-
-      <Typography variant="h4" sx={{ mt: 6, mb: 2, textAlign: "center" }}>
-        Industry-wise Solutions
+      <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
+        Our Expertise
       </Typography>
-      <Grid container spacing={4} sx={{ p: 4 }}>
+
+      <Box sx={{ my: 4 }}>
+        <Grid container spacing={4}>
+          {services.map((service, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card raised sx={{ height: "100%" }}>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={service.imageUrl}
+                  alt={service.name}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5">
+                    {service.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {service.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+
+      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+        Request CRM & ERP Development Consultation
+      </Button>
+
+      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
+        <CRMERPEnquiryForm handleClose={handleClose}/>
+        <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
+          Close
+        </Button>
+      </Dialog>
+
+      <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
+        Industry - Wise Solutions
+      </Typography>
+
+      <Grid
+        container
+        spacing={4}
+        sx={{ my: 4 }}
+        justifyContent="center"
+        alignItems="center"
+      >
         {industries.map((industry, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card raised sx={{ height: "100%" }}>
@@ -159,21 +176,6 @@ const CRMERPService = () => {
           </Grid>
         ))}
       </Grid>
-
-      <Box
-        sx={{ my: 4, p: 4, textAlign: "center", bgcolor: "background.paper" }}
-      >
-        <Typography variant="h4" gutterBottom>
-          From Our Blog
-        </Typography>
-        <Typography variant="body1">
-          Discover the latest trends in CRM and ERP technologies and how they
-          can revolutionize your business.
-        </Typography>
-        <Button variant="contained" color="secondary">
-          Visit Blog
-        </Button>
-      </Box>
     </Container>
   );
 };
