@@ -16,7 +16,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const Footer = () => {
   return (
     <Box sx={{ backgroundColor: "#1976d2", color: "#ffffff", py: 3 }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Grid container spacing={4}>
           <Grid item xs={12} sm={4}>
             <Box

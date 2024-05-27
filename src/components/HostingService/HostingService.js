@@ -11,8 +11,6 @@ import {
   Dialog,
 } from "@mui/material";
 import { useState } from "react";
-import TestimonialComponent from "../Testimonial/Testimonial";
-import ContactUs from "../../pages/ContactUs";
 import HostingEnquiryForm from "../Forms/HostingEnquiryForm";
 
 const HostingService = () => {
@@ -68,99 +66,62 @@ const HostingService = () => {
           overflow: "hidden",
         }}
       >
-        <Typography variant="h3" gutterBottom>
-          Premium Hosting Services
-        </Typography>
-        <Typography variant="h6">
+        <Typography variant="h2">Premium Hosting Services</Typography>
+        <Typography variant="h5">
           Reliable and secure hosting solutions tailored to meet your business
           needs.
         </Typography>
       </Box>
 
-      <Grid container spacing={4} sx={{ p: 4 }}>
-        {services.map((service, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card raised sx={{ height: "100%" }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image={service.imageUrl}
-                alt={service.name}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  {service.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {service.description}
-                </Typography>
-                <Button variant="contained" color="primary" sx={{ mt: 2 }}>
-                  Learn More
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+      <Typography variant="h4" sx={{ mt: 4, mb: 2, textAlign: "center" }}>
+        Our Hosting
+      </Typography>
 
-      <Card sx={{ margin: 3, borderRadius: "12px" }}>
-        <CardContent>
-          <Box sx={{ p: 4, textAlign: "center", mt: 4, marginTop: 10 }}>
-            <Typography variant="h5" gutterBottom>
-              Ready to start your project? Let's discuss your requirements.
-            </Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleClickOpen}
-            >
-              Request a Quote
-            </Button>
-          </Box>
+      <Box sx={{ my: 4 }}>
+        <Grid container spacing={4}>
+          {services.map((service, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card raised sx={{ height: "100%" }}>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={service.imageUrl}
+                  alt={service.name}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5">
+                    {service.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {service.description}
+                  </Typography>
+                  <Button variant="contained" color="primary" sx={{ mt: 2 }}>
+                    Learn More
+                  </Button>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
 
-          <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
-            <HostingEnquiryForm />
-            <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
-              Close
-            </Button>
-          </Dialog>
-        </CardContent>
-      </Card>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleClickOpen}
+        sx={{ mb: 2 }}
+      >
+        Request Hosting Consultation
+      </Button>
 
-      <Card sx={{ margin: 3, borderRadius: "12px" }}>
-        <CardContent>
-          <Box sx={{ my: 4, p: 4, bgcolor: "#e8f5e9", textAlign: "center" }}>
-            <Typography variant="h4" gutterBottom>
-              From Our Blog
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              Dive into the latest trends and innovations in web development,
-              and how they can benefit your business.
-            </Typography>
-            <Button variant="contained" color="secondary">
-              Visit Blog
-            </Button>
-          </Box>
-        </CardContent>
-      </Card>
-
-      <Card sx={{ margin: 3, borderRadius: "12px" }}>
-        <CardContent>
-          <Grid item xs={12}>
-            <TestimonialComponent />
-          </Grid>
-        </CardContent>
-      </Card>
-
-      <Card sx={{ margin: 3, borderRadius: "12px" }}>
-        <CardContent>
-          <Grid item xs={12}>
-            <ContactUs />
-          </Grid>
-        </CardContent>
-      </Card>
+      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
+        <HostingEnquiryForm handleClose={handleClose} />
+        <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
+          Close
+        </Button>
+      </Dialog>
     </Container>
   );
-}
+};
 
 export default HostingService;

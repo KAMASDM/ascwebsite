@@ -58,7 +58,7 @@ const Blog = () => {
   );
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ mb: 4 }}>
       <Typography variant="h4" sx={{ mt: 4, mb: 2, textAlign: "center" }}>
         Latest from Our Blog
       </Typography>

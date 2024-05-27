@@ -15,8 +15,6 @@ import TrafficIcon from "@mui/icons-material/Traffic";
 import InsightsIcon from "@mui/icons-material/Insights";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import CompetitiveAdvantageIcon from "@mui/icons-material/BarChart";
-import KeywordSearch from "../KeywordSearch/KeywordSearch";
-import Testimonial from "../Testimonial/Testimonial";
 
 const seoServices = [
   {
@@ -130,7 +128,7 @@ const SEOService = () => {
         </Typography>
       </Box>
 
-      <Typography variant="h4" sx={{ mt: 4, mb: 2, textAlign: "center" }}>
+      <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
         The Way We SEO
       </Typography>
 
@@ -160,11 +158,11 @@ const SEOService = () => {
         ))}
       </Grid>
 
-      <Typography variant="h4" sx={{ mt: 4, mb: 2, textAlign: "center" }}>
+      <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
         Why SEO?
       </Typography>
-      
-      <Grid container spacing={4} justifyContent="center">
+
+      <Grid container spacing={4} justifyContent="center" sx={{ mb: 4 }}>
         {seoReasons.map((reason, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card
@@ -192,16 +190,8 @@ const SEOService = () => {
           </Grid>
         ))}
       </Grid>
-
-      <Testimonial />
-
-      <Typography variant="h4" sx={{ mt: 4, mb: 2, textAlign: "center" }}>
-        Keyword Research Tool
-      </Typography>
-
-      <KeywordSearch />
     </Container>
   );
-}
+};
 
 export default SEOService;

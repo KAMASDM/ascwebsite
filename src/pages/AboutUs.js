@@ -18,7 +18,7 @@ import TestimonialComponent from "../components/Testimonial/Testimonial";
 
 const AboutUs = () => {
   return (
-    <Container maxWidth="xl" sx={{ my: 4 }}>
+    <Container maxWidth="xl" disableGutters>
       <Typography variant="h4" textAlign={"center"}>
         About Us
       </Typography>

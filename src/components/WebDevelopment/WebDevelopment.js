@@ -9,10 +9,9 @@ import {
   Button,
   Box,
 } from "@mui/material";
-import TestimonialComponent from "../Testimonial/Testimonial";
 import { useState } from "react";
 import { Dialog } from "@mui/material";
-import EnquiryForm from "../Forms/EnquiryForm";
+import WebDevelopmentForm from "../Forms/WebDevelopmentForm";
 
 const webDevServices = [
   {
@@ -108,7 +107,7 @@ const WebDevelopment = () => {
         </Typography>
       </Box>
 
-      <Typography variant="h4" sx={{ mt: 4, mb: 2, textAlign: "center" }}>
+      <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
         Our Expertise
       </Typography>
 
@@ -136,22 +135,27 @@ const WebDevelopment = () => {
           ))}
         </Grid>
       </Box>
-
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleClickOpen}
+        sx={{ mb: 2 }}
+      >
         Request Web Development Consultation
       </Button>
 
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
-        <EnquiryForm />
+        <WebDevelopmentForm handleClose={handleClose} />
         <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
           Close
         </Button>
       </Dialog>
 
-      <Typography variant="h4" sx={{ mt: 6, mb: 2, textAlign: "center" }}>
+      <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
         Upcoming Projects
       </Typography>
-      <Grid container spacing={4}>
+
+      <Grid container spacing={4} justifyContent="center" sx={{ mb: 4 }}>
         {upcomingProjects.map((project, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card raised sx={{ height: "100%" }}>
@@ -173,8 +177,6 @@ const WebDevelopment = () => {
           </Grid>
         ))}
       </Grid>
-
-      <TestimonialComponent />
     </Container>
   );
 };

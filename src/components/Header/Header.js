@@ -22,50 +22,30 @@ const Header = () => {
 
   const menuItems = [
     { text: "Home", link: "/" },
-    { text: "Services", link: "/services" },
-    { text: "Solutions", link: "/solutions" },
-    { text: "Blog", link: "/blog" },
-    { text: "Careers", link: "/careers" },
-    { text: "Contact Us", link: "/contact-us" },
+    { text: "Services", link: "/Services" },
+    { text: "Solutions", link: "/Solutions" },
+    { text: "Blog", link: "/Blog" },
+    { text: "Careers", link: "/Careers" },
+    { text: "Contact Us", link: "/ContactUs" },
   ];
-
-  const drawer = (
-    <Drawer
-      anchor="left"
-      open={drawerOpen}
-      onClose={() => setDrawerOpen(false)}
-    >
-      <List>
-        {menuItems.map((item) => (
-          <ListItem
-            button
-            component={Link}
-            to={item.link}
-            key={item.text}
-            onClick={() => setDrawerOpen(false)}
-          >
-            <ListItemText primary={item.text} />
-          </ListItem>
-        ))}
-      </List>
-    </Drawer>
-  );
 
   return (
     <>
       <AppBar
-        position="sticky"
+        position={isMobile ? "fixed" : "sticky"}
         sx={{
-          backgroundColor: "#1976d2",
+          backgroundColor: theme.palette.primary.main,
           backdropFilter: "blur(10px)",
           borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-          borderRadius: "12px",
-          margin: theme.spacing(1),
+          borderRadius: isMobile ? "0" : "12px",
+          margin: isMobile ? "0" : theme.spacing(1),
           padding: "0 20px",
           justifyContent: "space-between",
-          width: "calc(100% - 32px)",
-          marginLeft: "auto",
-          marginRight: "auto",
+          width: isMobile ? "100%" : "calc(100% - 32px)",
+          top: isMobile ? "auto" : 0,
+          bottom: isMobile ? 0 : "auto",
+          left: "auto",
+          right: "auto",
         }}
       >
         <Toolbar
@@ -113,9 +93,27 @@ const Header = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-      {drawer}
+      <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        <List>
+          {menuItems.map((item) => (
+            <ListItem
+              button
+              component={Link}
+              to={item.link}
+              key={item.text}
+              onClick={() => setDrawerOpen(false)}
+            >
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
     </>
   );
-}
+};
 
 export default Header;
