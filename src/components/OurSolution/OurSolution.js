@@ -9,27 +9,32 @@ import {
   Grid,
   CardMedia,
 } from "@mui/material";
-import Appointment from "../../Images/Explore Our Solutions/Helth care/Appointment Booking System.jpg";
-import Patient from "../../Images/Explore Our Solutions/Helth care/Patient Management System1.png"
-import WebDoctor from "../../Images/Explore Our Solutions/Helth care/Website For Doctors and Hospitals.png";
-import LearingManagementSystem from "../../Images/Explore Our Solutions/Education/Learning Management System.png";
-import AttandanceTracking from "../../Images/Explore Our Solutions/Education/Attendance Tracking.png";
-import WebSiteForSchools from "../../Images/Explore Our Solutions/Education/Website for Schools and Universities.jpg";
-import AlumniManagementSystem from "../../Images/Explore Our Solutions/Education/Alumni Management System.png";
-import SEO from "../../Images/Our Services/SEO Service.png"
-import CRMERP from "../../Images/Explore Our Solutions/Education/CRM -ERP.jpg"
-import CRM from "../../Images/Explore Our Solutions/Education/CRM.png"
-import PaymentGateway from "../../Images/Explore Our Solutions/Education/payment-gateway-integration.jpg"
-import WebSite from "../../Images/Explore Our Solutions/Education/Website.png"
-import Security from "../../Images/Explore Our Solutions/Education/Security Protocol Implementation.png"
-import ECommerce from "../../Images/Explore Our Solutions/Education/E-Commerce-Website.png"
-import ChatBot from "../../Images/Explore Our Solutions/Education/Chatbot Development and Training.jpg"
-import Logistic from "../../Images/Explore Our Solutions/Education/Logistic Partner API Integration.png"
-import LeadAutomation from "../../Images/Explore Our Solutions/Education/Lead Automation.png"
-import LoyaltyManagementSystem  from "../../Images/Explore Our Solutions/Education/Loyalty Management System.jpg";
-import EventManagementPortal from "../../Images/Explore Our Solutions/Education/Event Management Portal.jpg"
-import LeadAPI from "../../Images/Explore Our Solutions/Education/Lead API Integration.png"
+import ABS from "../../Images/OurSolutions/Helthcare/ABS.jpg";
+import PMS from "../../Images/OurSolutions/Helthcare/PMS.png";
+import WDH from "../../Images/OurSolutions/Helthcare/WDH.png";
 
+import LMS from "../../Images/OurSolutions/Education/LMS.png";
+import AT from "../../Images/OurSolutions/Education/AT.png";
+import WFSU from "../../Images/OurSolutions/Education/WSU.jpg";
+import OEC from "../../Images/OurSolutions/Education/OEC.png";
+import A from "../../Images/OurSolutions/Education/A.svg";
+import SEO from "../../Images/OurServices/SEO.png";
+
+import CE from "../../Images/OurSolutions/Manufacturing/CE.jpg";
+import W from "../../Images/OurSolutions/Manufacturing/W.png";
+import LA from "../../Images/OurSolutions/Manufacturing/LA.png";
+import LAI from "../../Images/OurSolutions/Manufacturing/LAI.png";
+
+import ECW from "../../Images/OurSolutions/ECommerce/ECW.png";
+import CDT from "../../Images/OurSolutions/ECommerce/CDT.jpg";
+import LPAI from "../../Images/OurSolutions/ECommerce/LPAI.png";
+import PGI from "../../Images/OurSolutions/ECommerce/PGI.jpg";
+import SPI from "../../Images/OurSolutions/ECommerce/SPI.png";
+
+import CRM from "../../Images/OurSolutions/Retail/CRM.png";
+
+import Event from "../../Images/OurSolutions/Non-Profit/Event.png";
+import LoMS from "../../Images/OurSolutions/Non-Profit/LoMS.jpg";
 
 const solutions = [
   {
@@ -39,25 +44,25 @@ const solutions = [
         name: "Appointment Booking System",
         description:
           "Manage appointments seamlessly with our advanced booking system.",
-        imageUrl: Appointment,
+        image: ABS,
       },
       {
         name: "Patient Management System",
         description:
           "Streamline patient data and processes with integrated management solutions.",
-        imageUrl: Patient,
+        image: PMS,
       },
       {
         name: "Website For Doctors and Hospitals",
         description:
           "Professional and functional websites designed for medical professionals.",
-        imageUrl: WebDoctor,
+        image: WDH,
       },
       {
         name: "SEO",
         description:
           "Optimize your medical websites for better visibility and patient engagement.",
-        imageUrl: SEO,
+        image: SEO,
       },
     ],
   },
@@ -68,35 +73,35 @@ const solutions = [
         name: "Learning Management System",
         description:
           "Robust platforms for educational content delivery and tracking.",
-        imageUrl: LearingManagementSystem,
+        image: LMS,
       },
       {
         name: "Attendance Tracking",
         description:
           "Automated systems for accurate and easy monitoring of student attendance.",
-        imageUrl: AttandanceTracking,
+        image: AT,
       },
       {
         name: "Website for Schools and Universities",
         description: "Dynamic websites tailored for educational institutions.",
-        imageUrl: WebSiteForSchools,
+        image: WFSU,
       },
       {
         name: "Overseas Education CRM",
         description: "Manage and engage with prospective students globally.",
-        imageUrl: "https://source.unsplash.com/random/300x200?overseas",
+        image: OEC,
       },
       {
         name: "Alumni Management System",
         description:
           "Keep your alumni network active and involved with our solutions.",
-        imageUrl: AlumniManagementSystem,
+        image: A,
       },
       {
         name: "SEO",
         description:
           "Increase the reach and impact of your educational institution online.",
-        imageUrl: SEO,
+        image: SEO,
       },
     ],
   },
@@ -107,29 +112,29 @@ const solutions = [
         name: "CRM / ERP",
         description:
           "Integrate all your manufacturing processes into one streamlined system.",
-        imageUrl: CRMERP,
+        image: CE,
       },
       {
         name: "Website",
         description:
           "Custom websites that highlight your manufacturing capabilities.",
-        imageUrl: WebSite,
+        image: W,
       },
       {
         name: "Lead Automation",
         description:
           "Automate lead generation and management to increase efficiency.",
-        imageUrl: LeadAutomation,
+        image: LA,
       },
       {
         name: "Lead API Integration",
         description: "Sync leads from platforms like IndiaMart and TradeIndia.",
-        imageUrl: LeadAPI,
+        image: LAI,
       },
       {
         name: "SEO",
         description: "Optimize your digital presence to attract more business.",
-        imageUrl: SEO,
+        image: SEO,
       },
     ],
   },
@@ -140,32 +145,32 @@ const solutions = [
         name: "E-Commerce Website",
         description:
           "Build your online store with our comprehensive e-commerce solutions.",
-        imageUrl: ECommerce,
+        image: ECW,
       },
       {
         name: "Chatbot Integration",
         description: "Enhance customer service with AI-driven chatbots.",
-        imageUrl: ChatBot,
+        image: CDT,
       },
       {
         name: "Logistic Partner API Integration",
         description: "Seamlessly integrate with major logistic providers.",
-        imageUrl: Logistic,
+        image: LPAI,
       },
       {
         name: "Payment Gateway Integrations",
         description: "Incorporate multiple payment options for your customers.",
-        imageUrl: PaymentGateway,
+        image: PGI,
       },
       {
         name: "Security Protocol Implementation",
         description: "Ensure your e-commerce platform is secure and reliable.",
-        imageUrl: Security,
+        image: SPI,
       },
       {
         name: "SEO",
         description: "Boost your online store's visibility in search engines.",
-        imageUrl: SEO,
+        image: SEO,
       },
     ],
   },
@@ -176,19 +181,19 @@ const solutions = [
         name: "Website",
         description:
           "Engage customers with a sleek, professional retail website.",
-        imageUrl: WebSite,
+        image: W,
       },
       {
         name: "SEO",
         description:
           "Optimize your retail business for greater online exposure.",
-        imageUrl: SEO,
+        image: SEO,
       },
       {
         name: "CRM",
         description:
           "Customer relationship management tailored for the retail industry.",
-        imageUrl: CRM,
+        image: CRM,
       },
     ],
   },
@@ -199,33 +204,33 @@ const solutions = [
         name: "Website",
         description:
           "Create a compelling online presence for your non-profit organization.",
-        imageUrl: WebSite,
+        image: W,
       },
       {
         name: "SEO",
         description: "Increase visibility to boost support and engagement.",
-        imageUrl: SEO,
+        image: SEO,
       },
       {
         name: "Event Management Portal",
         description:
           "Manage your events smoothly with our comprehensive portal.",
-        imageUrl: EventManagementPortal,
+        image: Event,
       },
       {
         name: "Loyalty Management System",
         description: "Foster supporter loyalty with targeted engagement tools.",
-        imageUrl: LoyaltyManagementSystem,
+        image: LoMS,
       },
       {
         name: "Payment Gateway Integration",
         description: "Simplify donations with easy payment solutions.",
-        imageUrl: PaymentGateway,
+        image: PGI,
       },
       {
         name: "Chatbot Development and Training",
         description: "Engage visitors with interactive AI chatbots.",
-        imageUrl: ChatBot,
+        image: CDT,
       },
     ],
   },
@@ -280,8 +285,8 @@ const OurSolution = () => {
             <Card raised sx={{ height: "100%" }}>
               <CardMedia
                 component="img"
-                height="140"
-                image={solution.imageUrl}
+                height="280"
+                image={solution.image}
                 alt={solution.name}
               />
               <CardContent>

@@ -12,43 +12,53 @@ import {
 import { useState } from "react";
 import { Dialog } from "@mui/material";
 import WebDevelopmentForm from "../Forms/WebDevelopmentForm";
+import ExpertiseBanner from "../../Images/Expertise/Expertise_Banner_2000x600px.webp";
+import RD from "../../Images/Expertise/responsive-web-design-professional.png"
+import FD from "../../Images/Expertise/FD.png"
+import BD from "../../Images/Expertise/BD.jpg"
+import ECS from "../../Images/OurServices/ECS.png"
+import CMS from "../../Images/Expertise/cms-development-services-cover-picture-03.svg"
+import API from "../../Images/Expertise/1674214638095.jpeg"
+import SM from "../../Images/Expertise/news-connectivity-aug17-Bezeq.jpg"
+import AA from "../../Images/Expertise/bigdata_rockmetric.png"
+import BC from "../../Images/Expertise/171212-Bitcoin.jpg"
 
 const webDevServices = [
   {
     title: "Responsive Design",
     description:
       "Create visually appealing and functional designs that ensure your website looks great on any device and screen size.",
-    image: "https://source.unsplash.com/random/300x200?responsive",
+    image: RD,
   },
   {
     title: "Frontend Development",
     description:
       "Build fast and interactive user interfaces with modern JavaScript frameworks like React, Vue, or Angular.",
-    image: "https://source.unsplash.com/random/300x200?frontend",
+    image: FD,
   },
   {
     title: "Backend Development",
     description:
       "Develop robust and scalable server-side logic using Node.js, Django, or Spring, coupled with powerful databases.",
-    image: "https://source.unsplash.com/random/300x200?backend",
+    image: BD,
   },
   {
     title: "E-commerce Solutions",
     description:
       "Implement full-featured e-commerce solutions that provide a seamless shopping experience to boost your sales.",
-    image: "https://source.unsplash.com/random/300x200?ecommerce",
+    image: ECS,
   },
   {
     title: "CMS Development",
     description:
       "Custom content management systems that allow you to efficiently manage your site content with ease.",
-    image: "https://source.unsplash.com/random/300x200?cms",
+    image: CMS,
   },
   {
     title: "API Development",
     description:
       "Design and implement custom APIs that enable your applications to communicate with each other and with third-party services effectively.",
-    image: "https://source.unsplash.com/random/300x200?api",
+    image: API,
   },
 ];
 
@@ -57,19 +67,19 @@ const upcomingProjects = [
     title: "Smart City Applications",
     description:
       "Developing a suite of integrated applications aimed at improving urban living through smart technology solutions.",
-    image: "https://source.unsplash.com/random/300x200?smartcity",
+    image: SM,
   },
   {
     title: "Advanced Analytics Platform",
     description:
       "Creating a powerful analytics platform that leverages AI to provide deep insights into data for businesses across various sectors.",
-    image: "https://source.unsplash.com/random/300x200?analytics",
+    image: AA,
   },
   {
     title: "Blockchain-Based Supply Chain",
     description:
       "Implementing a secure, blockchain-powered supply chain management system for a multinational corporation.",
-    image: "https://source.unsplash.com/random/300x200?blockchain",
+    image: BC,
   },
 ];
 
@@ -85,11 +95,10 @@ const WebDevelopment = () => {
   };
 
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Container maxWidth="xl" sx={{ my: 4 }}>
       <Box
         sx={{
-          backgroundImage:
-            'url("https://source.unsplash.com/random/1920x1080?webdevelopment")',
+          backgroundImage: `url(${ExpertiseBanner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",
@@ -97,14 +106,9 @@ const WebDevelopment = () => {
           p: 6,
           borderRadius: "12px",
           overflow: "hidden",
+          height: "180px",
         }}
       >
-        <Typography variant="h2">
-          Comprehensive Web Development Services
-        </Typography>
-        <Typography variant="h5">
-          From concept to deployment, we cover all phases of web development.
-        </Typography>
       </Box>
 
       <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
@@ -118,7 +122,7 @@ const WebDevelopment = () => {
               <Card raised sx={{ height: "100%" }}>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="280"
                   image={service.image}
                   alt={service.title}
                 />
@@ -161,7 +165,7 @@ const WebDevelopment = () => {
             <Card raised sx={{ height: "100%" }}>
               <CardMedia
                 component="img"
-                height="140"
+                height="280"
                 image={project.image}
                 alt={project.title}
               />

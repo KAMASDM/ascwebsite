@@ -9,6 +9,13 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import SEO from "../../Images/SEO/Search-Engine-Optimization-Website.webp"
+import KR from "../../Images/SEO/saas-keyword-research-scaled.webp"
+import OP from "../../Images/SEO/1680416529753.jpeg"
+import FP from "../../Images/SEO/Importance-of-the-off-hdi-1.png"
+import CC from "../../Images/SEO/Content-creation-no-text-1200x675-1.png"
+import AR from "../../Images/SEO/business-analytics-vector_28257-13.avif"
+import RD from "../../Images/SEO/1_t_539YylKhbqfapSW019yg.jpg"
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import TrafficIcon from "@mui/icons-material/Traffic";
@@ -21,37 +28,37 @@ const seoServices = [
     title: "Keyword Research",
     description:
       "Identify the best keywords for your market and optimize your content to rank higher.",
-    image: "https://source.unsplash.com/random/300x200?keyword",
+    image: KR,
   },
   {
     title: "On-Page Optimization",
     description:
       "Optimize your site's content and HTML source code to improve visibility.",
-    image: "https://source.unsplash.com/random/300x200?onpage-seo",
+    image: OP,
   },
   {
     title: "Off-Page Optimization",
     description:
       "Enhance your website's position in SERPs through activities outside the boundaries of your pages.",
-    image: "https://source.unsplash.com/random/300x200?offpage-seo",
+    image: FP,
   },
   {
     title: "Content Creation",
     description:
       "Develop engaging content that drives traffic and converts visitors into customers.",
-    image: "https://source.unsplash.com/random/300x200?content-creation",
+    image: CC,
   },
   {
     title: "Analytics & Reporting",
     description:
       "Utilize analytics to track your success and refine strategies for continuous improvement.",
-    image: "https://source.unsplash.com/random/300x200?seo-analytics",
+    image: AR,
   },
   {
     title: "Real-Time Data",
     description:
       "Use real-time data to adjust your SEO strategies dynamically for maximum effectiveness.",
-    image: "https://source.unsplash.com/random/300x200?real-time-data",
+    image: RD,
   },
 ];
 
@@ -112,7 +119,7 @@ const SEOService = () => {
       <Box
         sx={{
           backgroundImage:
-            'url("https://source.unsplash.com/random/1920x1080?seo")',
+            `url(${SEO})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",
@@ -120,12 +127,9 @@ const SEOService = () => {
           p: 6,
           borderRadius: "12px",
           overflow: "hidden",
+          height: "180px",
         }}
       >
-        <Typography variant="h2">Master SEO with Our Expertise</Typography>
-        <Typography variant="h5">
-          Elevate your site's performance and visibility
-        </Typography>
       </Box>
 
       <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
@@ -138,7 +142,7 @@ const SEOService = () => {
             <Card raised sx={{ height: "100%" }}>
               <CardMedia
                 component="img"
-                height="140"
+                height="280"
                 image={service.image}
                 alt={service.title}
               />

@@ -11,25 +11,36 @@ import {
 } from "@mui/material";
 import { Dialog } from "@mui/material";
 import CRMERPEnquiryForm from "../Forms/CRMERPEnquiryForm";
+import ERPBanner from "../../Images/CRM/An-Award-Winning-Cloud-Based-University-Management-ERP-Software.webp";
+import CRMS from "../../Images/CRM/3722743.webp";
+import ERP from "../../Images/CRM/hand-drawn-flat-design-erp-illustration_23-2149379505.avif";
+import Vtiger from "../../Images/CRM/7ffdda6d-66e4-48c7-b2e6-e00a088292b4_all-in-one-page-benefits-07.svg";
+import HC from "../../Images/OurSolutions/Helthcare/PMS.png"
+import Retail from "../../Images/CRM/brick-mortar-abstract-concept-vector-illustration_107173-28894.avif"
+import Manufacturing from "../../Images/CRM/factory-workers-robotic-arm-removing-packages-from-conveyor-line-engineer-using-computer-operating-process-vector-illustration-business-production-machine-technology-concepts_74855-9859.avif"
+import Education from "../../Images/CRM/ae5ae16a1f8bdad663c96a699d91e646.jpg"
+import RES from "../../Images/CRM/3135821.webp"
+import Finance from "../../Images/CRM/Finamce.avif"
+
 
 const services = [
   {
     name: "CRM Solutions",
     description:
       "Streamline your customer interactions and enhance relationship management with our advanced CRM solutions. Tailored to boost your sales, marketing, and customer service efforts.",
-    imageUrl: "https://source.unsplash.com/random/300x200?crm",
+    imageUrl: CRMS,
   },
   {
     name: "ERP Systems",
     description:
       "Integrate all facets of your business operations, from supply chain management to human resources and finance, with our comprehensive ERP systems designed for efficiency and scalability.",
-    imageUrl: "https://source.unsplash.com/random/300x200?erp",
+    imageUrl: ERP,
   },
   {
     name: "Vtiger CRM",
     description:
       "Harness the power of Vtiger CRM to enhance your customer engagement and drive sales with a comprehensive and customizable CRM platform.",
-    imageUrl: "https://source.unsplash.com/random/300x200?vtiger",
+    imageUrl: Vtiger,
   },
 ];
 
@@ -38,37 +49,37 @@ const industries = [
     name: "Healthcare",
     description:
       "Manage patient interactions, appointments, and sensitive data securely and efficiently.",
-    imageUrl: "https://source.unsplash.com/random/300x200?healthcare",
+    imageUrl: HC,
   },
   {
     name: "Retail",
     description:
       "Optimize supply chains and enhance customer retail experiences with tailored CRM solutions.",
-    imageUrl: "https://source.unsplash.com/random/300x200?retail",
+    imageUrl: Retail,
   },
   {
     name: "Manufacturing",
     description:
       "Streamline production processes and client management from initial contact to after-sales support.",
-    imageUrl: "https://source.unsplash.com/random/300x200?manufacturing",
+    imageUrl: Manufacturing,
   },
   {
     name: "Education",
     description:
       "Improve student and faculty engagement through effective communication and management tools.",
-    imageUrl: "https://source.unsplash.com/random/300x200?education",
+    imageUrl: Education,
   },
   {
     name: "Real Estate",
     description:
       "Manage leads, property listings, and client interactions with dynamic CRM tools.",
-    imageUrl: "https://source.unsplash.com/random/300x200?realestate",
+    imageUrl: RES,
   },
   {
     name: "Finance",
     description:
       "Secure and improve customer relations and transactions with integrated CRM solutions.",
-    imageUrl: "https://source.unsplash.com/random/300x200?finance",
+    imageUrl: Finance,
   },
 ];
 
@@ -84,11 +95,10 @@ const CRMERPService = () => {
   };
 
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Container maxWidth="xl" sx={{ my: 4 }}>
       <Box
         sx={{
-          backgroundImage:
-            'url("https://source.unsplash.com/random/1920x1080?webdevelopment")',
+          backgroundImage: `url(${ERPBanner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",
@@ -96,14 +106,10 @@ const CRMERPService = () => {
           p: 6,
           borderRadius: "12px",
           overflow: "hidden",
+          height: "180px",
         }}
       >
-        <Typography variant="h2">CRM & ERP Solutions</Typography>
-        <Typography variant="h5">
-          Empowering businesses to streamline processes and improve efficiency.
-        </Typography>
       </Box>
-
       <Typography variant="h4" sx={{ m: 4, textAlign: "center" }}>
         Our Expertise
       </Typography>
@@ -115,7 +121,7 @@ const CRMERPService = () => {
               <Card raised sx={{ height: "100%" }}>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="280"
                   image={service.imageUrl}
                   alt={service.name}
                 />
@@ -138,7 +144,7 @@ const CRMERPService = () => {
       </Button>
 
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
-        <CRMERPEnquiryForm handleClose={handleClose}/>
+        <CRMERPEnquiryForm handleClose={handleClose} />
         <Button onClick={handleClose} color="primary" sx={{ m: 2 }}>
           Close
         </Button>
@@ -160,7 +166,7 @@ const CRMERPService = () => {
             <Card raised sx={{ height: "100%" }}>
               <CardMedia
                 component="img"
-                height="140"
+                height="280"
                 image={industry.imageUrl}
                 alt={industry.name}
               />
