@@ -12,6 +12,7 @@ import {
   FormControlLabel,
   Radio,
   Box,
+  CircularProgress,
 } from "@mui/material";
 import { toast } from "react-toastify";
 
@@ -25,14 +26,15 @@ const initialState = {
   name: "",
   email: "",
   phone: "",
-  projectType: "",
-  additionalService: "",
+  project_type: "",
+  additional_services: "",
 };
 
 const CRMERPEnquiryForm = ({ handleClose }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const validateBasicInfo = () => {
     const basicErrors = {};
@@ -45,16 +47,16 @@ const CRMERPEnquiryForm = ({ handleClose }) => {
 
   const validateProjectRequirements = () => {
     const projectErrors = {};
-    if (!form.projectType)
-      projectErrors.projectType = "Project type is required";
+    if (!form.project_type)
+      projectErrors.project_type = "Project type is required";
     setErrors(projectErrors);
     return Object.keys(projectErrors).length === 0;
   };
 
   const validateAdditionalServices = () => {
     const additionalErrors = {};
-    if (!form.additionalService)
-      additionalErrors.additionalService = "Additional service is required";
+    if (!form.additional_services)
+      additionalErrors.additional_services = "Additional service is required";
     setErrors(additionalErrors);
     return Object.keys(additionalErrors).length === 0;
   };
@@ -94,17 +96,18 @@ const CRMERPEnquiryForm = ({ handleClose }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
 
     const data = new FormData();
     data.append("name", form.name);
     data.append("email", form.email);
     data.append("phone", form.phone);
-    data.append("projectType", form.projectType);
-    data.append("additionalService", form.additionalService);
+    data.append("project_type", form.project_type);
+    data.append("additional_services", form.additional_services);
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyEIeNgCsT01bfCEe82WvGLx9zKoV0FtiMKoL_PuXqnf7Qz1lGf3NpxQwo5cX2eALkm/exec",
+        "https://newone.anantsoftcomputing.com/api/create-crmerp-enquiry/",
         {
           method: "POST",
           body: data,
@@ -117,7 +120,9 @@ const CRMERPEnquiryForm = ({ handleClose }) => {
         toast.error("Submission failed, Please try again.");
       }
     } catch (error) {
-      console.error("An error occurred while submitting the form:", error);
+      toast.error("An error occurred while submitting the form.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -182,8 +187,8 @@ const CRMERPEnquiryForm = ({ handleClose }) => {
               <FormControl component="fieldset" margin="normal">
                 <RadioGroup
                   row
-                  name="projectType"
-                  value={form.projectType}
+                  name="project_type"
+                  value={form.project_type}
                   onChange={handleChange}
                 >
                   <FormControlLabel
@@ -202,9 +207,9 @@ const CRMERPEnquiryForm = ({ handleClose }) => {
                     label="Both CRM and ERP"
                   />
                 </RadioGroup>
-                {errors.projectType && (
+                {errors.project_type && (
                   <Typography variant="body2" color="error">
-                    {errors.projectType}
+                    {errors.project_type}
                   </Typography>
                 )}
               </FormControl>
@@ -215,8 +220,8 @@ const CRMERPEnquiryForm = ({ handleClose }) => {
               <FormControl component="fieldset">
                 <RadioGroup
                   row
-                  name="additionalService"
-                  value={form.additionalService}
+                  name="additional_services"
+                  value={form.additional_services}
                   onChange={handleChange}
                 >
                   <FormControlLabel
@@ -235,9 +240,9 @@ const CRMERPEnquiryForm = ({ handleClose }) => {
                     label="Training and Support"
                   />
                 </RadioGroup>
-                {errors.additionalService && (
+                {errors.additional_services && (
                   <Typography variant="body2" color="error">
-                    {errors.additionalService}
+                    {errors.additional_services}
                   </Typography>
                 )}
               </FormControl>
@@ -262,8 +267,17 @@ const CRMERPEnquiryForm = ({ handleClose }) => {
             onClick={
               activeStep === steps.length - 1 ? handleSubmit : handleNext
             }
+            disabled={loading}
           >
-            {activeStep === steps.length - 1 ? "Submit" : "Next"}
+            {activeStep === steps.length - 1 ? (
+              loading ? (
+                <CircularProgress size={24} />
+              ) : (
+                "Submit"
+              )
+            ) : (
+              "Next"
+            )}
           </Button>
         </Box>
       </div>

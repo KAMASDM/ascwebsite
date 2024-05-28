@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
@@ -11,61 +11,67 @@ import {
   Button,
   Box,
   Card,
+  CircularProgress,
 } from "@mui/material";
+
+const initialValues = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  phone: "",
+  education: "",
+  work_experience: "",
+  skills: "",
+  upload_resume: null,
+};
+
+const validationSchema = Yup.object({
+  first_name: Yup.string()
+    .required("First Name is required")
+    .min(2, "First Name must be at least 2 characters"),
+  last_name: Yup.string()
+    .required("Last Name is required")
+    .min(2, "Last Name must be at least 2 characters"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  phone: Yup.string()
+    .required("Phone Number is required")
+    .matches(/^[0-9]{10}$/, "Phone Number must be exactly 10 digits"),
+  education: Yup.string().required("Education is required"),
+  work_experience: Yup.string().required("Work Experience is required"),
+  skills: Yup.string(),
+  upload_resume: Yup.mixed().required("Resume is required"),
+});
 
 const Careers = () => {
   const navigate = useNavigate();
-
-  const validationSchema = Yup.object({
-    firstName: Yup.string()
-      .required("First Name is required")
-      .min(2, "First Name must be at least 2 characters"),
-    lastName: Yup.string()
-      .required("Last Name is required")
-      .min(2, "Last Name must be at least 2 characters"),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    phone: Yup.string()
-      .required("Phone Number is required")
-      .matches(/^[0-9]{10}$/, "Phone Number must be exactly 10 digits"),
-    education: Yup.string().required("Education is required"),
-    experience: Yup.string().required("Work Experience is required"),
-    skills: Yup.string(),
-    resume: Yup.mixed().required("Resume is required"),
-  });
+  const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      education: "",
-      experience: "",
-      skills: "",
-      resume: null,
-    },
+    initialValues,
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       const data = new FormData();
-      data.append("firstName", values.firstName);
-      data.append("lastName", values.lastName);
+      data.append("first_name", values.first_name);
+      data.append("last_name", values.last_name);
       data.append("email", values.email);
       data.append("phone", values.phone);
       data.append("education", values.education);
-      data.append("experience", values.experience);
+      data.append("work_experience", values.work_experience);
       data.append("skills", values.skills);
-      data.append("resume", values.resume);
+      data.append("upload_resume", values.upload_resume);
 
+      setLoading(true);
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbwTsAryqmZZsCcwX3blAm0PtC8sqD2j9YDYEXDRXx8BJeVMdc1K2de7ayNdYdGzlNKz/exec",
+          "https://newone.anantsoftcomputing.com/api/create-career/",
           {
             method: "POST",
             body: data,
           }
         );
+        setLoading(false);
         if (response.ok) {
           resetForm();
           navigate("/");
@@ -74,7 +80,9 @@ const Careers = () => {
           toast.error("Submission failed, Please try again.");
         }
       } catch (error) {
+        setLoading(false);
         console.error("An error occurred while submitting the form:", error);
+        toast.error("An error occurred, Please try again.");
       }
     },
   });
@@ -102,14 +110,14 @@ const Careers = () => {
                 required
                 fullWidth
                 label="First Name"
-                name="firstName"
-                value={formik.values.firstName}
+                name="first_name"
+                value={formik.values.first_name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={
-                  formik.touched.firstName && Boolean(formik.errors.firstName)
+                  formik.touched.first_name && Boolean(formik.errors.first_name)
                 }
-                helperText={formik.touched.firstName && formik.errors.firstName}
+                helperText={formik.touched.first_name && formik.errors.first_name}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -117,14 +125,14 @@ const Careers = () => {
                 required
                 fullWidth
                 label="Last Name"
-                name="lastName"
-                value={formik.values.lastName}
+                name="last_name"
+                value={formik.values.last_name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={
-                  formik.touched.lastName && Boolean(formik.errors.lastName)
+                  formik.touched.last_name && Boolean(formik.errors.last_name)
                 }
-                helperText={formik.touched.lastName && formik.errors.lastName}
+                helperText={formik.touched.last_name && formik.errors.last_name}
               />
             </Grid>
             <Grid item xs={12}>
@@ -176,15 +184,15 @@ const Careers = () => {
                 required
                 fullWidth
                 label="Work Experience"
-                name="experience"
-                value={formik.values.experience}
+                name="work_experience"
+                value={formik.values.work_experience}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={
-                  formik.touched.experience && Boolean(formik.errors.experience)
+                  formik.touched.work_experience && Boolean(formik.errors.work_experience)
                 }
                 helperText={
-                  formik.touched.experience && formik.errors.experience
+                  formik.touched.work_experience && formik.errors.work_experience
                 }
                 multiline
                 rows={3}
@@ -206,17 +214,17 @@ const Careers = () => {
               <Button
                 variant="contained"
                 component="label"
-                error={formik.touched.resume && Boolean(formik.errors.resume)}
-                helperText={formik.touched.resume && formik.errors.resume}
+                error={formik.touched.upload_resume && Boolean(formik.errors.upload_resume)}
+                helperText={formik.touched.upload_resume && formik.errors.upload_resume}
               >
                 Upload Resume
                 <input
                   type="file"
-                  name="resume"
+                  name="upload_resume"
                   hidden
                   onChange={(event) => {
                     formik.setFieldValue(
-                      "resume",
+                      "upload_resume",
                       event.currentTarget.files[0]
                     );
                   }}
@@ -229,8 +237,9 @@ const Careers = () => {
                 fullWidth
                 variant="contained"
                 color="primary"
+                disabled={loading}
               >
-                Submit
+                {loading ? <CircularProgress size={24} /> : "Submit"}
               </Button>
             </Grid>
           </Grid>

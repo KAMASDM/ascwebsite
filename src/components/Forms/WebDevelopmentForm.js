@@ -12,6 +12,7 @@ import {
   Radio,
   Box,
   Typography,
+  CircularProgress,
 } from "@mui/material";
 import { toast } from "react-toastify";
 
@@ -29,6 +30,7 @@ const WebDevelopmentForm = ({ handleClose }) => {
   const [form, setForm] = useState(initialState);
   const [activeStep, setActiveStep] = useState(0);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -60,6 +62,7 @@ const WebDevelopmentForm = ({ handleClose }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
 
     const data = new FormData();
     data.append("name", form.name);
@@ -83,7 +86,9 @@ const WebDevelopmentForm = ({ handleClose }) => {
         toast.error("Submission failed, Please try again.");
       }
     } catch (error) {
-      console.error("An error occurred while submitting the form:", error);
+      toast.error("An error occurred while submitting the form.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -230,8 +235,17 @@ const WebDevelopmentForm = ({ handleClose }) => {
             onClick={
               activeStep === steps.length - 1 ? handleSubmit : handleNext
             }
+            disabled={loading}
           >
-            {activeStep === steps.length - 1 ? "Submit" : "Next"}
+            {activeStep === steps.length - 1 ? (
+              loading ? (
+                <CircularProgress size={24} />
+              ) : (
+                "Submit"
+              )
+            ) : (
+              "Next"
+            )}
           </Button>
         </Box>
       </div>

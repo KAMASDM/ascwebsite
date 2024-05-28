@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
@@ -18,6 +18,7 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  CircularProgress,
 } from "@mui/material";
 
 const steps = ["Contact Information", "Service Type", "Additional Comments"];
@@ -26,7 +27,7 @@ const initialValues = {
   name: "",
   email: "",
   phone: "",
-  serviceType: "",
+  service_type: "",
   comments: "",
 };
 
@@ -41,7 +42,7 @@ const validationSchemas = [
       .matches(/^\d{10}$/, "Phone number must be 10 digits"),
   }),
   Yup.object().shape({
-    serviceType: Yup.string().required("Service type is required"),
+    service_type: Yup.string().required("Service type is required"),
   }),
   Yup.object().shape({
     comments: Yup.string(),
@@ -50,7 +51,8 @@ const validationSchemas = [
 
 const ContactUs = () => {
   const navigate = useNavigate();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
     initialValues,
@@ -60,17 +62,19 @@ const ContactUs = () => {
       formData.append("name", values.name);
       formData.append("email", values.email);
       formData.append("phone", values.phone);
-      formData.append("serviceType", values.serviceType);
+      formData.append("service_type", values.service_type);
       formData.append("comments", values.comments);
 
+      setLoading(true);
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbwR5I9_dpICGaiR6PNeMK2wA4p3YnipM5j5FK_so801nra9ef299XHgvHSZVoz6fjdX/exec",
+          "https://newone.anantsoftcomputing.com/api/create-contact/",
           {
             method: "POST",
             body: formData,
           }
         );
+        setLoading(false);
         if (response.ok) {
           resetForm();
           navigate("/");
@@ -79,6 +83,7 @@ const ContactUs = () => {
           toast.error("Submission failed, Please try again.");
         }
       } catch (error) {
+        setLoading(false);
         console.error("An error occurred while submitting the form:", error);
       }
     },
@@ -168,19 +173,19 @@ const ContactUs = () => {
                 <Box display="flex" justifyContent="center">
                   <FormControl
                     error={
-                      formik.touched.serviceType &&
-                      Boolean(formik.errors.serviceType)
+                      formik.touched.service_type &&
+                      Boolean(formik.errors.service_type)
                     }
                   >
                     <RadioGroup
                       row
-                      name="serviceType"
-                      value={formik.values.serviceType}
+                      name="service_type"
+                      value={formik.values.service_type}
                       onChange={handleChange}
                       onBlur={formik.handleBlur}
                     >
                       <FormControlLabel
-                        value="SEO"
+                        value="SEO Services"
                         control={<Radio />}
                         label="SEO Services"
                       />
@@ -200,10 +205,10 @@ const ContactUs = () => {
                         label="Hosting Services"
                       />
                     </RadioGroup>
-                    {formik.touched.serviceType &&
-                      formik.errors.serviceType && (
+                    {formik.touched.service_type &&
+                      formik.errors.service_type && (
                         <Typography color="error">
-                          {formik.errors.serviceType}
+                          {formik.errors.service_type}
                         </Typography>
                       )}
                   </FormControl>
@@ -237,8 +242,16 @@ const ContactUs = () => {
               <Button disabled={activeStep === 0} onClick={handleBack}>
                 Back
               </Button>
-              <Button variant="contained" color="primary" onClick={handleNext}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+                disabled={loading}
+              >
                 {activeStep === steps.length - 1 ? "Submit" : "Next"}
+                {loading && (
+                  <CircularProgress size={24} sx={{ ml: 2 }} />
+                )}
               </Button>
             </Box>
           </div>
