@@ -10,6 +10,13 @@ import {
   Box,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import ServiceBanner from "../Images/Services/ServicesBanner.jpg"
+import SEO from "../Images/OurServices/SEO.png"
+import WD from "../Images/OurServices/SWD.jpg"
+import ECS from "../Images/OurServices/ECS.png"
+import MAD from "../Images/OurServices/MAD.jpg"
+import DM from "../Images/Services/DM.png";
+import CS from "../Images/Services/CS.png";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -19,41 +26,41 @@ const Services = () => {
       name: "SEO Services",
       description:
         "Optimize your online presence with our expert SEO strategies that boost your rankings and visibility.",
-      imageUrl: "https://source.unsplash.com/random/300x200?seo",
+      imageUrl: SEO,
       link: "/SEO",
     },
     {
       name: "Web Development",
       description:
         "Build responsive and dynamic websites tailored to meet your business needs.",
-      imageUrl: "https://source.unsplash.com/random/300x200?webdev",
+      imageUrl: WD,
       link: "/Web-Development",
     },
     {
       name: "E-Commerce Solutions",
       description:
         "Create robust e-commerce platforms that provide seamless shopping experiences.",
-      imageUrl: "https://source.unsplash.com/random/300x200?ecommerce",
+      imageUrl: ECS,
       link: "/E-Commerce-Solutions",
     },
     {
       name: "Mobile App Development",
       description:
         "Develop high-performance mobile applications for iOS and Android platforms.",
-      imageUrl: "https://source.unsplash.com/random/300x200?mobileApp",
+      imageUrl: MAD,
       link: "/Mobile-App-Development",
     },
     {
       name: "Digital Marketing",
       description:
         "Leverage digital channels to enhance your brand's online presence and engage with a wider audience.",
-      imageUrl: "https://source.unsplash.com/random/300x200?digitalMarketing",
+      imageUrl: DM,
     },
     {
       name: "Cloud Solutions",
       description:
         "Implement scalable cloud solutions to enhance your business operations and reduce costs.",
-      imageUrl: "https://source.unsplash.com/random/300x200?cloud",
+      imageUrl: CS,
     },
   ];
 
@@ -62,7 +69,7 @@ const Services = () => {
       <Box
         sx={{
           backgroundImage:
-            'url("https://source.unsplash.com/random/1920x1080")',
+          `url(${ServiceBanner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",
@@ -70,10 +77,11 @@ const Services = () => {
           p: 6,
           borderRadius: "12px",
           overflow: "hidden",
+          height: "180px",
         }}
       >
-        <Typography variant="h2">
-          We dont just Offer Services, We Offer Solutions
+        <Typography variant="h2" sx={{ mt: 4 }}>
+          We Offer Services
         </Typography>
         <Typography variant="h5">
           Delivering excellence and innovation across all our service areas.
@@ -90,7 +98,7 @@ const Services = () => {
             <Card raised sx={{ height: "100%" }}>
               <CardMedia
                 component="img"
-                height="200"
+                height="230"
                 image={service.imageUrl}
                 alt={service.name}
               />
@@ -101,10 +109,12 @@ const Services = () => {
                 <Typography variant="body1" color="text.secondary">
                   {service.description}
                 </Typography>
+
                 <Button
                   onClick={() => navigate(service.link)}
                   variant="contained"
                   color="primary"
+                  s
                   sx={{ mt: 2 }}
                 >
                   Know More

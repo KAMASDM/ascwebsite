@@ -8,12 +8,12 @@ import {
   Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import SEO from "../../Images/Our Services/SEO Service.png"
-import WebDevelopment from "../../Images/Our Services/Smart Web Development.jpg"
-import ECommerce from "../../Images/Our Services/E-Commerce Solutions.png"
-import CrmErp from "../../Images/Our Services/CRM  ERP Development.jpg"
-import MobileAppDevelopment from "../../Images/Our Services/Mobile Application Development.jpg"
-import Hositng from "../../Images/Our Services/host.png"
+import SEO from "../../Images/OurServices/SEO.png";
+import SWD from "../../Images/OurServices/SWD.jpg";
+import ECS from "../../Images/OurServices/ECS.png";
+import CRMERP from "../../Images/OurSolutions/Manufacturing/CE.jpg";
+import MAD from "../../Images/OurServices/MAD.jpg";
+import Hositng from "../../Images/OurServices/Hosting.png";
 
 const services = [
   {
@@ -27,28 +27,28 @@ const services = [
     name: "Smart Web Development",
     description:
       "Develop intelligent, responsive websites tailored to your business needs.",
-    image: WebDevelopment,
+    image: SWD,
     link: "/Web-Development",
   },
   {
     name: "E-Commerce Solutions",
     description:
       "Launch powerful online stores with a seamless shopping experience that drives sales.",
-    image: ECommerce,
+    image: ECS,
     link: "/E-Commerce-Solutions",
   },
   {
     name: "CRM / ERP Development",
     description:
       "Implement robust systems that streamline operations and enhance organizational efficiency.",
-    image: CrmErp,
+    image: CRMERP,
     link: "/CRM-ERP-Development",
   },
   {
     name: "Mobile Application Development",
     description:
       "Create compelling mobile applications that provide excellent user experiences across all devices.",
-    image: MobileAppDevelopment,
+    image: MAD,
     link: "/Mobile-App-Development",
   },
   {
@@ -73,9 +73,9 @@ const OurService = () => {
             <Card raised sx={{ height: "100%" }}>
               <CardMedia
                 component="img"
-                height="140"
+                height="230"
                 image={service.image}
-                alt={service.title}
+                alt={service.name}
               />
               <CardContent>
                 <Typography variant="h5">{service.name}</Typography>

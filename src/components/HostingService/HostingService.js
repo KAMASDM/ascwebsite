@@ -12,6 +12,11 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import HostingEnquiryForm from "../Forms/HostingEnquiryForm";
+import HBanner from "../../Images/Hosting/web-hosting-banner.jpg";
+import SH from "../../Images/Hosting/3826483.webp";
+import VH from "../../Images/Hosting/cloud-computing-services-and-technology-cloud-storage-data-protection-business-concept-vector-illustration-2C58JMW.jpg";
+import DH from "../../Images/Hosting/dedicated-web-hosting.jpg";
+import CH from "../../Images/Hosting/employer-manages-cloud-server-hosting-4153017-3443563.webp";
 
 const HostingService = () => {
   const [open, setOpen] = useState(false);
@@ -29,34 +34,33 @@ const HostingService = () => {
       name: "Shared Hosting",
       description:
         "Affordable and user-friendly hosting for small businesses or personal websites. Perfect for getting started online with support for all major CMS platforms.",
-      imageUrl: "https://source.unsplash.com/random/300x200?server",
+      imageUrl: SH,
     },
     {
       name: "VPS Hosting",
       description:
         "Flexible and scalable virtual private servers offer you more control and customization for growing businesses with greater resource needs.",
-      imageUrl: "https://source.unsplash.com/random/300x200?datacenter",
+      imageUrl: VH,
     },
     {
       name: "Dedicated Hosting",
       description:
         "Maximum performance and control with dedicated hardware for your business. Ideal for high traffic sites and intensive applications.",
-      imageUrl: "https://source.unsplash.com/random/300x200?network",
+      imageUrl: DH,
     },
     {
       name: "Cloud Hosting",
       description:
         "Harness the power of cloud computing with scalable resources and pay-as-you-go pricing. Excellent for businesses with fluctuating traffic.",
-      imageUrl: "https://source.unsplash.com/random/300x200?cloud",
+      imageUrl: CH,
     },
   ];
 
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Container maxWidth="xl" sx={{ my: 4 }}>
       <Box
         sx={{
-          backgroundImage:
-            'url("https://source.unsplash.com/random/1920x1080?hosting")',
+          backgroundImage: `url(${HBanner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",
@@ -64,19 +68,12 @@ const HostingService = () => {
           p: 6,
           borderRadius: "12px",
           overflow: "hidden",
+          height: "180px",
         }}
-      >
-        <Typography variant="h2">Premium Hosting Services</Typography>
-        <Typography variant="h5">
-          Reliable and secure hosting solutions tailored to meet your business
-          needs.
-        </Typography>
-      </Box>
-
+      ></Box>
       <Typography variant="h4" sx={{ mt: 4, mb: 2, textAlign: "center" }}>
         Our Hosting
       </Typography>
-
       <Box sx={{ my: 4 }}>
         <Grid container spacing={4}>
           {services.map((service, index) => (
@@ -84,7 +81,7 @@ const HostingService = () => {
               <Card raised sx={{ height: "100%" }}>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="280"
                   image={service.imageUrl}
                   alt={service.name}
                 />

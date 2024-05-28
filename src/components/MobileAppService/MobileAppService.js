@@ -12,25 +12,35 @@ import {
 import { Dialog } from "@mui/material";
 import { useState } from "react";
 import MobileAppEnquiryForm from "../Forms/MobileAppEnquiryForm";
+import MobileBanner from "../../Images/MoblieApp/Mob-App.webp.webp";
+import IOS from "../../Images/MoblieApp/1_kZ60bdSzXhydAYGqn2EWHQ.jpg";
+import AAD from "../../Images/MoblieApp/android-app-development-course.png";
+import CPD from "../../Images/MoblieApp/cross-platform-software-concept-illustration_114360-7293.avif";
+import EA from "../../Images/MoblieApp/3287063.webp";
+import EQA from "../../Images/MoblieApp/e-learning-education-process-training-application-mobile-app-development-courses-mobile-apps-online-courses-become-a-mobile-developer-concept-flat-modern-illustration-vector.jpg";
+import HAF from "../../Images/MoblieApp/runner-uses-smartwatch-sport-and-health-apps-fitness-tracker-activity-band-health-monitor-and-wrist-worn-device-concept-on-white-background-flat-modern-illustration-vector.jpg";
+import SMA from "../../Images/MoblieApp/social-media-8124075_1280.webp"
+import UA from "../../Images/MoblieApp/Feature-Image-1.webp"
+import GA from "../../Images/MoblieApp/male-mobile-game-developer-8620911-6885145.webp"
 
 const services = [
   {
     name: "iOS App Development",
     description:
       "Craft stunning, high-performance applications for iOS devices tailored to meet your business needs and user expectations.",
-    imageUrl: "https://source.unsplash.com/random/300x200?ios",
+    imageUrl: IOS,
   },
   {
     name: "Android App Development",
     description:
       "Develop engaging Android applications that reach a wide audience, designed for maximum impact and seamless user experience.",
-    imageUrl: "https://source.unsplash.com/random/300x200?android",
+    imageUrl: AAD,
   },
   {
     name: "Cross-Platform Development",
     description:
-      "Utilize frameworks like React Native to build applications that operate smoothly across multiple platforms, ensuring consistency and functionality.",
-    imageUrl: "https://source.unsplash.com/random/300x200?crossplatform",
+      "Utilize frameworks like React Native to build applications that operate smoothly across multiple platforms, ensuring consistency.",
+    imageUrl: CPD,
   },
 ];
 
@@ -39,37 +49,37 @@ const mobileAppTypes = [
     name: "E-commerce Apps",
     description:
       "Streamline online shopping with a user-friendly mobile app designed to enhance customer engagement and boost sales.",
-    imageUrl: "https://source.unsplash.com/random/300x200?ecommerceApp",
+    imageUrl: EA,
   },
   {
     name: "Educational Apps",
     description:
       "Foster learning and accessibility with educational apps that offer interactive courses, tutorials, and learning management systems.",
-    imageUrl: "https://source.unsplash.com/random/300x200?educationalApp",
+    imageUrl: EQA,
   },
   {
     name: "Health & Fitness Apps",
     description:
       "Promote a healthy lifestyle with apps that track fitness, nutrition, and provide personalized workout and diet plans.",
-    imageUrl: "https://source.unsplash.com/random/300x200?healthApp",
+    imageUrl: HAF,
   },
   {
     name: "Social Media Apps",
     description:
       "Connect the world by creating compelling social media platforms that offer innovative ways for interaction and content sharing.",
-    imageUrl: "https://source.unsplash.com/random/300x200?socialMediaApp",
+    imageUrl: SMA,
   },
   {
     name: "Utility Apps",
     description:
       "Enhance everyday efficiency with utility apps that include features like reminders, calculators, and weather updates.",
-    imageUrl: "https://source.unsplash.com/random/300x200?utilityApp",
+    imageUrl: UA,
   },
   {
     name: "Gaming Apps",
     description:
       "Engage users with captivating and immersive gaming experiences designed for a variety of demographics and interests.",
-    imageUrl: "https://source.unsplash.com/random/300x200?gamingApp",
+    imageUrl: GA,
   },
 ];
 
@@ -85,11 +95,10 @@ const MobileAppService = () => {
   };
 
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Container maxWidth="xl" sx={{ my: 4 }}>
       <Box
         sx={{
-          backgroundImage:
-            'url("https://source.unsplash.com/random/1920x1080?mobileApps")',
+          backgroundImage: `url(${MobileBanner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",
@@ -97,14 +106,9 @@ const MobileAppService = () => {
           p: 6,
           borderRadius: "12px",
           overflow: "hidden",
+          height: "180px",
         }}
-      >
-        <Typography variant="h2">Mobile Application Development</Typography>
-        <Typography variant="h5">
-          Bringing your mobile app ideas to life with cutting-edge technology
-          and design.
-        </Typography>
-      </Box>
+      ></Box>
 
       <Typography variant="h4" sx={{ mt: 4, textAlign: "center" }}>
         Our Mobile Development Services
@@ -117,7 +121,7 @@ const MobileAppService = () => {
               <Card raised sx={{ height: "100%" }}>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="280"
                   image={service.imageUrl}
                   alt={service.name}
                 />
@@ -159,7 +163,7 @@ const MobileAppService = () => {
               <Card raised sx={{ height: "100%" }}>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="280"
                   image={type.imageUrl}
                   alt={type.name}
                 />
