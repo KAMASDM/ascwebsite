@@ -85,29 +85,25 @@ const Footer = () => {
               Quick Links
             </Typography>
             <Stack direction="column" spacing={0.5}>
-              <Link href="/privacy-policy" color="inherit" underline="none">
+              <Link to="/privacy-policy" color="inherit" underline="none">
                 Privacy Policy
               </Link>
-              <Link
-                href="/terms-and-conditions"
-                color="inherit"
-                underline="none"
-              >
+              <Link to="/terms-and-conditions" color="inherit" underline="none">
                 Terms and Conditions
               </Link>
-              <Link href="/services" color="inherit" underline="none">
+              <Link to="/Services" color="inherit" underline="none">
                 Services
               </Link>
-              <Link href="/solutions" color="inherit" underline="none">
+              <Link to="/Solutions" color="inherit" underline="none">
                 Solutions
               </Link>
-              <Link href="/blogs" color="inherit" underline="none">
+              <Link to="/Blog" color="inherit" underline="none">
                 Blogs
               </Link>
-              <Link href="/contact-us" color="inherit" underline="none">
+              <Link to="/ContactUs" color="inherit" underline="none">
                 Contact Us
               </Link>
-              <Link href="/careers" color="inherit" underline="none">
+              <Link to="/Careers" color="inherit" underline="none">
                 Careers
               </Link>
             </Stack>
