@@ -11,16 +11,16 @@ import {
 } from "@mui/material";
 import { Dialog } from "@mui/material";
 import CRMERPEnquiryForm from "../Forms/CRMERPEnquiryForm";
-import ERPBanner from "../../Images/CRM/An-Award-Winning-Cloud-Based-University-Management-ERP-Software.webp";
-import CRMS from "../../Images/CRM/3722743.webp";
-import ERP from "../../Images/CRM/hand-drawn-flat-design-erp-illustration_23-2149379505.avif";
-import Vtiger from "../../Images/CRM/7ffdda6d-66e4-48c7-b2e6-e00a088292b4_all-in-one-page-benefits-07.svg";
+import ERPBanner from "../../Images/CRM/CRMBanner.webp";
+import CRMS from "../../Images/CRM/CRMS.webp";
+import ERP from "../../Images/CRM/ERP.avif";
+import Vtiger from "../../Images/CRM/Vtiger.svg";
 import HC from "../../Images/OurSolutions/Helthcare/PMS.png"
-import Retail from "../../Images/CRM/brick-mortar-abstract-concept-vector-illustration_107173-28894.avif"
-import Manufacturing from "../../Images/CRM/factory-workers-robotic-arm-removing-packages-from-conveyor-line-engineer-using-computer-operating-process-vector-illustration-business-production-machine-technology-concepts_74855-9859.avif"
-import Education from "../../Images/CRM/ae5ae16a1f8bdad663c96a699d91e646.jpg"
-import RES from "../../Images/CRM/3135821.webp"
-import Finance from "../../Images/CRM/Finamce.avif"
+import Retail from "../../Images/CRM/Retail.avif"
+import Manufacturing from "../../Images/CRM/Manufacturing.avif"
+import Education from "../../Images/CRM/Education.jpg"
+import RES from "../../Images/CRM/RES.webp"
+import Finance from "../../Images/CRM/Finance.avif"
 
 
 const services = [

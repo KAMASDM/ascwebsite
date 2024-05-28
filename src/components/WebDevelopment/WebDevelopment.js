@@ -12,16 +12,16 @@ import {
 import { useState } from "react";
 import { Dialog } from "@mui/material";
 import WebDevelopmentForm from "../Forms/WebDevelopmentForm";
-import ExpertiseBanner from "../../Images/Expertise/Expertise_Banner_2000x600px.webp";
-import RD from "../../Images/Expertise/responsive-web-design-professional.png"
+import ExpertiseBanner from "../../Images/Expertise/ExpertiseBanner.webp";
+import RD from "../../Images/Expertise/RD.png"
 import FD from "../../Images/Expertise/FD.png"
 import BD from "../../Images/Expertise/BD.jpg"
 import ECS from "../../Images/OurServices/ECS.png"
-import CMS from "../../Images/Expertise/cms-development-services-cover-picture-03.svg"
-import API from "../../Images/Expertise/1674214638095.jpeg"
-import SM from "../../Images/Expertise/news-connectivity-aug17-Bezeq.jpg"
-import AA from "../../Images/Expertise/bigdata_rockmetric.png"
-import BC from "../../Images/Expertise/171212-Bitcoin.jpg"
+import CMS from "../../Images/Expertise/CMS.svg"
+import API from "../../Images/Expertise/API.jpeg"
+import SM from "../../Images/Expertise/SM.jpg"
+import AA from "../../Images/Expertise/AA.png"
+import BC from "../../Images/Expertise/BC.jpg"
 
 const webDevServices = [
   {

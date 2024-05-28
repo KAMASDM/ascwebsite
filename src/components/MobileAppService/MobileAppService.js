@@ -12,16 +12,16 @@ import {
 import { Dialog } from "@mui/material";
 import { useState } from "react";
 import MobileAppEnquiryForm from "../Forms/MobileAppEnquiryForm";
-import MobileBanner from "../../Images/MoblieApp/Mob-App.webp.webp";
-import IOS from "../../Images/MoblieApp/1_kZ60bdSzXhydAYGqn2EWHQ.jpg";
-import AAD from "../../Images/MoblieApp/android-app-development-course.png";
-import CPD from "../../Images/MoblieApp/cross-platform-software-concept-illustration_114360-7293.avif";
-import EA from "../../Images/MoblieApp/3287063.webp";
-import EQA from "../../Images/MoblieApp/e-learning-education-process-training-application-mobile-app-development-courses-mobile-apps-online-courses-become-a-mobile-developer-concept-flat-modern-illustration-vector.jpg";
-import HAF from "../../Images/MoblieApp/runner-uses-smartwatch-sport-and-health-apps-fitness-tracker-activity-band-health-monitor-and-wrist-worn-device-concept-on-white-background-flat-modern-illustration-vector.jpg";
-import SMA from "../../Images/MoblieApp/social-media-8124075_1280.webp"
-import UA from "../../Images/MoblieApp/Feature-Image-1.webp"
-import GA from "../../Images/MoblieApp/male-mobile-game-developer-8620911-6885145.webp"
+import MobileBanner from "../../Images/MoblieApp/MobileBanner.webp";
+import IOS from "../../Images/MoblieApp/IOS.jpg";
+import AAD from "../../Images/MoblieApp/AAD.png";
+import CPD from "../../Images/MoblieApp/CPD.avif";
+import EA from "../../Images/MoblieApp/EA.webp";
+import EQA from "../../Images/MoblieApp/EQA.jpg";
+import HAF from "../../Images/MoblieApp/HAF.jpg";
+import SMA from "../../Images/MoblieApp/SMA.webp"
+import UA from "../../Images/MoblieApp/UA.webp"
+import GA from "../../Images/MoblieApp/GA.webp"
 
 const services = [
   {

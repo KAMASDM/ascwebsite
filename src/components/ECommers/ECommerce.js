@@ -11,15 +11,15 @@ import {
   Dialog,
 } from "@mui/material";
 import ECommerceEnquiryForm from "../Forms/ECommerceEnquiryForm";
-import ECBanner from "../../Images/E-Commerce/ecommerce-banner.jpg";
-import CS from "../../Images/E-Commerce/grammar-in-use_0.jpg"
+import ECBanner from "../../Images/E-Commerce/EcommerceBanner.jpg";
+import CS from "../../Images/E-Commerce/CS.jpg"
 import PGI from "../../Images/OurSolutions/ECommerce/PGI.jpg" 
 import IOMS from "../../Images/E-Commerce/IOMS.jpg"
 import MAD from "../../Images/OurServices/MAD.jpg"
 import SEO from "../../Images/OurServices/SEO.png"
-import LFS from "../../Images/E-Commerce/fashion-shop-concept-illustration_114360-9623.avif"
-import TGM from "../../Images/E-Commerce/Digital-lending-market-Hero-Image-1.jpg"
-import OFOS from "../../Images/E-Commerce/istockphoto-1222105389-612x612.jpg"
+import LFS from "../../Images/E-Commerce/LFS.avif"
+import TGM from "../../Images/E-Commerce/TGM.jpg"
+import OFOS from "../../Images/E-Commerce/OFOS.jpg"
 
 const ECommerce = () => {
   const [open, setOpen] = useState(false);
