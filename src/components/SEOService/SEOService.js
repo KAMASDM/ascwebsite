@@ -9,19 +9,20 @@ import {
   Button,
   Box,
 } from "@mui/material";
-import SEO from "../../Images/SEO/Search-Engine-Optimization-Website.webp"
-import KR from "../../Images/SEO/saas-keyword-research-scaled.webp"
-import OP from "../../Images/SEO/1680416529753.jpeg"
-import FP from "../../Images/SEO/Importance-of-the-off-hdi-1.png"
-import CC from "../../Images/SEO/Content-creation-no-text-1200x675-1.png"
-import AR from "../../Images/SEO/business-analytics-vector_28257-13.avif"
-import RD from "../../Images/SEO/1_t_539YylKhbqfapSW019yg.jpg"
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import TrafficIcon from "@mui/icons-material/Traffic";
 import InsightsIcon from "@mui/icons-material/Insights";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import CompetitiveAdvantageIcon from "@mui/icons-material/BarChart";
+
+import SEOBanner from "../../Images/SEO/SEOBanner.webp"
+import KR from "../../Images/SEO/KR.webp"
+import OP from "../../Images/SEO/OP.jpeg"
+import FP from "../../Images/SEO/FP.png"
+import CC from "../../Images/SEO/CC.png"
+import AR from "../../Images/SEO/AR.avif"
+import RD from "../../Images/SEO/RD.jpg"
 
 const seoServices = [
   {
@@ -119,7 +120,7 @@ const SEOService = () => {
       <Box
         sx={{
           backgroundImage:
-            `url(${SEO})`,
+            `url(${SEOBanner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "common.white",

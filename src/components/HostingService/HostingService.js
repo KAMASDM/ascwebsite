@@ -12,11 +12,11 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import HostingEnquiryForm from "../Forms/HostingEnquiryForm";
-import HBanner from "../../Images/Hosting/web-hosting-banner.jpg";
-import SH from "../../Images/Hosting/3826483.webp";
-import VH from "../../Images/Hosting/cloud-computing-services-and-technology-cloud-storage-data-protection-business-concept-vector-illustration-2C58JMW.jpg";
-import DH from "../../Images/Hosting/dedicated-web-hosting.jpg";
-import CH from "../../Images/Hosting/employer-manages-cloud-server-hosting-4153017-3443563.webp";
+import HBanner from "../../Images/Hosting/HBanner.jpg";
+import SH from "../../Images/Hosting/SH.webp";
+import VH from "../../Images/Hosting/VH.jpg";
+import DH from "../../Images/Hosting/DH.jpg";
+import CH from "../../Images/Hosting/CH.webp";
 
 const HostingService = () => {
   const [open, setOpen] = useState(false);
