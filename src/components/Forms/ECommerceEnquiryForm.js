@@ -12,6 +12,7 @@ import {
   FormControlLabel,
   Radio,
   Box,
+  CircularProgress,
 } from "@mui/material";
 import { toast } from "react-toastify";
 
@@ -33,6 +34,7 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const validateContactInfo = () => {
     const contactErrors = {};
@@ -95,6 +97,7 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
 
     const data = new FormData();
     data.append("name", form.name);
@@ -118,7 +121,9 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
         toast.error("Submission failed, Please try again.");
       }
     } catch (error) {
-      console.error("An error occurred while submitting the form:", error);
+      toast.error("An error occurred while submitting the form.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -275,7 +280,15 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
               activeStep === steps.length - 1 ? handleSubmit : handleNext
             }
           >
-            {activeStep === steps.length - 1 ? "Submit" : "Next"}
+            {activeStep === steps.length - 1 ? (
+              loading ? (
+                <CircularProgress size={24} />
+              ) : (
+                "Submit"
+              )
+            ) : (
+              "Next"
+            )}
           </Button>
         </Box>
       </div>

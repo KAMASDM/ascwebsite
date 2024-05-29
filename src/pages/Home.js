@@ -5,6 +5,7 @@ import OurSolution from "../components/OurSolution/OurSolution";
 import AboutUs from "./AboutUs";
 import Blog from "./Blog";
 import ASC from "../Images/ASC/ASC.jpg";
+import Testimonial from "../components/Testimonial/Testimonial";
 
 const LandingPage = () => {
   return (
@@ -38,6 +39,9 @@ const LandingPage = () => {
         </Grid>
         <Grid item xs={12}>
           <AboutUs />
+        </Grid>
+        <Grid item xs={12}>
+          <Testimonial />
         </Grid>
         <Grid item xs={12}>
           <Blog />
