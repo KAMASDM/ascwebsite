@@ -97,6 +97,10 @@ const Header = () => {
         anchor="left"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
+        sx={{ width: isMobile ? "50%" : "250px" }}
+        PaperProps={{
+          sx: { width: isMobile ? "50%" : "250px" },
+        }}
       >
         <List>
           {menuItems.map((item) => (

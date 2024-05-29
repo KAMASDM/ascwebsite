@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Container,
@@ -8,49 +9,46 @@ import {
   IconButton,
   Stack,
 } from "@mui/material";
+import "./Footer.css";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GoogleIcon from "@mui/icons-material/Google";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
-    <Box sx={{ backgroundColor: "#1976d2", color: "#ffffff", py: 3 }}>
-      <Container maxWidth="xl">
+    <Box sx={{ backgroundColor: "#1976d2", color: "#ffffff", py: 4 }}>
+      <Container maxWidth="lg">
         <Grid container spacing={4}>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} md={4}>
             <Box
-              sx={{
-                display: "flex",
-                justifyContent: "flex-start",
-                alignItems: "left",
-                marginLeft: "2px",
-              }}
+              sx={{ display: "flex", justifyContent: "flex-start", mb: 2 }}
+              onClick={() => navigate("/")}
             >
               <img
                 src="https://anantsoftcomputing.com/jeegardesai/ASC.png"
                 alt="Anant Soft Computing Logo"
-                style={{ width: 120, height: "auto", marginBottom: 2 }}
+                style={{ width: 120, height: "auto" }}
               />
             </Box>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
               About Us
             </Typography>
-            <Typography variant="body2">
+            <Typography variant="body2" sx={{ pr: { md: 4 } }}>
               Our mission is to deliver innovative solutions that cater to
               diverse business needs.
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
               Contact Information
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
               Anant Soft Computing
               <br />
-              1 C Satyam Appartment, Vishwas Colony Alkapuri,
+              1 C Satyam Apartment, Vishwas Colony Alkapuri,
               <br />
-              Vadodara -390007
+              Vadodara - 390007
               <br />
               Phone: 9638544455
               <br />
@@ -59,51 +57,52 @@ const Footer = () => {
             <Box>
               <IconButton
                 href="https://www.facebook.com/anantsoftcomputing/"
-                color="inherit"
+                sx={{ color: "inherit" }}
               >
                 <FacebookIcon />
               </IconButton>
               <IconButton
                 href="https://www.instagram.com/anantsoftcomputing/"
-                color="inherit"
+                sx={{ color: "inherit" }}
               >
                 <InstagramIcon />
               </IconButton>
               <IconButton
                 href="https://g.page/r/Cey-9CAcyT3aEBM/review"
-                color="inherit"
+                sx={{ color: "inherit" }}
               >
                 <GoogleIcon />
               </IconButton>
-              <IconButton href="https://www.linkedin.com" color="inherit">
-                <LinkedInIcon />
-              </IconButton>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={4} alignContent={"right"}>
+          <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
               Quick Links
             </Typography>
             <Stack direction="column" spacing={0.5}>
-              <Link to="/privacy-policy" color="inherit" underline="none">
+              <Link href="/privacy-policy" color="inherit" underline="none">
                 Privacy Policy
               </Link>
-              <Link to="/terms-and-conditions" color="inherit" underline="none">
+              <Link
+                href="/terms-and-conditions"
+                color="inherit"
+                underline="none"
+              >
                 Terms and Conditions
               </Link>
-              <Link to="/Services" color="inherit" underline="none">
+              <Link href="/Services" color="inherit" underline="none">
                 Services
               </Link>
-              <Link to="/Solutions" color="inherit" underline="none">
+              <Link href="/Solutions" color="inherit" underline="none">
                 Solutions
               </Link>
-              <Link to="/Blog" color="inherit" underline="none">
+              <Link href="/Blog" color="inherit" underline="none">
                 Blogs
               </Link>
-              <Link to="/ContactUs" color="inherit" underline="none">
+              <Link href="/ContactUs" color="inherit" underline="none">
                 Contact Us
               </Link>
-              <Link to="/Careers" color="inherit" underline="none">
+              <Link href="/Careers" color="inherit" underline="none">
                 Careers
               </Link>
             </Stack>

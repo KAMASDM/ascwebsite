@@ -1,113 +1,142 @@
 import React from "react";
 import {
   Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
   Grid,
   Card,
-  Container,
   CardContent,
   Chip,
+  Avatar,
+  Divider,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import BusinessIcon from "@mui/icons-material/Business";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import GroupIcon from "@mui/icons-material/Group";
-import TestimonialComponent from "../components/Testimonial/Testimonial";
+import ValuesIcon from "@mui/icons-material/Star";
+import CultureIcon from "@mui/icons-material/Work";
+import Person from "../Images/Testimonial/Profile.jpg";
 
 const AboutUs = () => {
   return (
-    <Container maxWidth="xl" disableGutters>
-      <Typography variant="h4" textAlign={"center"}>
+    <>
+      <Typography variant="h4" sx={{ mt: 4, mb: 2, textAlign: "center" }}>
         About Us
       </Typography>
       <Grid container spacing={4}>
-        <Grid item xs={12} sm={6} md={4} marginTop={3}>
-          <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="h6">Introduction</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
-                Opening Statement: A compelling introduction that captures the
-                essence of the company and its purpose. Company Vision and
-                Mission: A clear statement of the company's long-term vision and
-                immediate mission.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} marginTop={3}>
-          <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="h6">Company History</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
-                Timeline: A chronological overview of key milestones and
-                achievements that have shaped the company. Founding Story: A
-                narrative about how the company was founded, including the
-                inspiration behind it and the challenges faced.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} marginTop={3}>
-          <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="h6">Core Values</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
-                Values List: A list or a series of statements that define the
-                core values driving the company’s culture and decision-making
-                processes. Explanation of Values: How these values influence the
-                company’s operations, product development, and customer service.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Card raised sx={{ height: "100%" }}>
             <CardContent>
-              <Typography variant="h5" component="div" gutterBottom>
+              <Typography
+                variant="h5"
+                component="div"
+                gutterBottom
+                sx={{ mb: 2 }}
+              >
                 Leadership Team
               </Typography>
-              <Chip
-                icon={<GroupIcon />}
-                label="John Doe - CEO"
-                variant="outlined"
-                sx={{ m: 1 }}
-              />
-              <Chip
-                icon={<GroupIcon />}
-                label="Jane Smith - CTO"
-                variant="outlined"
-                sx={{ m: 1 }}
-              />
+              <Divider sx={{ mb: 2 }} />
+              <Grid container spacing={1} alignItems="center">
+                <Grid item>
+                  <Avatar src={Person} />
+                </Grid>
+                <Grid item>
+                  <Chip
+                    label="Jigar Desai - CEO"
+                    variant="outlined"
+                    sx={{ m: 1 }}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container spacing={1} alignItems="center">
+                <Grid item>
+                  <Avatar src={Person} />
+                </Grid>
+                <Grid item>
+                  <Chip
+                    label="Vijendrasinh - SEO Manager"
+                    variant="outlined"
+                    sx={{ m: 1 }}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container spacing={1} alignItems="center">
+                <Grid item>
+                  <Avatar src={Person} />
+                </Grid>
+                <Grid item>
+                  <Chip
+                    label="Mehul Machhi - Back End Developer"
+                    variant="outlined"
+                    sx={{ m: 1 }}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container spacing={1} alignItems="center">
+                <Grid item>
+                  <Avatar src={Person} />
+                </Grid>
+                <Grid item>
+                  <Chip
+                    label="Sagar Ramani - Front End Developer"
+                    variant="outlined"
+                    sx={{ m: 1 }}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container spacing={1} alignItems="center">
+                <Grid item>
+                  <Avatar src={Person} />
+                </Grid>
+                <Grid item>
+                  <Chip
+                    label="Darshan Patel - Front End Developer"
+                    variant="outlined"
+                    sx={{ m: 1 }}
+                  />
+                </Grid>
+              </Grid>
             </CardContent>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Card raised sx={{ height: "100%" }}>
             <CardContent>
-              <Typography variant="h5" component="div" gutterBottom>
-                Achievements
+              <Typography
+                variant="h5"
+                component="div"
+                gutterBottom
+                sx={{ mb: 2 }}
+              >
+                Core Values
               </Typography>
-              <Typography component="div">
-                <Chip
-                  icon={<EmojiEventsIcon />}
-                  label="Award 2021"
-                  variant="outlined"
-                  sx={{ m: 1 }}
-                />
-                <Chip
-                  icon={<BusinessIcon />}
-                  label="ISO 9001 Certified"
-                  variant="outlined"
-                  sx={{ m: 1 }}
-                />
+              <Divider sx={{ mb: 2 }} />
+              <ValuesIcon sx={{ fontSize: 50, color: "#f57c00" }} />
+              <ValuesIcon sx={{ fontSize: 50, color: "#f57c00" }} />
+              <ValuesIcon sx={{ fontSize: 50, color: "#f57c00" }} />
+              <ValuesIcon sx={{ fontSize: 50, color: "#f57c00" }} />
+              <ValuesIcon sx={{ fontSize: 50, color: "#f57c00" }} />
+              <Typography variant="body1" sx={{ mt: 2 }}>
+                Our core values define our culture and guide our decision-making
+                processes. We prioritize:
+              </Typography>
+              <Typography variant="body1" component="div" sx={{ mt: 2 }}>
+                <ul>
+                  <li>
+                    Integrity : Upholding the highest standards in all our
+                    actions.
+                  </li>
+                  <li>
+                    Innovation : Continuously seeking new and creative
+                    solutions.
+                  </li>
+                  <li>
+                    Excellence : Striving for perfection in everything we do.
+                  </li>
+                  <li>
+                    Teamwork : Collaborating effectively to achieve common
+                    goals.
+                  </li>
+                  <li>
+                    Customer Focus : Putting our customers at the center of our
+                    decisions.
+                  </li>
+                </ul>
               </Typography>
             </CardContent>
           </Card>
@@ -115,25 +144,48 @@ const AboutUs = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card raised sx={{ height: "100%" }}>
             <CardContent>
-              <Typography variant="h5" component="div" gutterBottom>
+              <Typography
+                variant="h5"
+                component="div"
+                gutterBottom
+                sx={{ mb: 2 }}
+              >
                 Company Culture
               </Typography>
-              <Typography>
-                Work Environment: Description of the work atmosphere,
-                highlighting aspects like collaboration, innovation, diversity,
-                and inclusion. Employee Initiatives: Information on unique
-                employee programs, community involvement, or social
-                responsibility initiatives.
+              <Divider sx={{ mb: 2 }} />
+              <CultureIcon sx={{ fontSize: 50, color: "#4caf50" }} />
+              <Typography variant="body1" sx={{ mt: 2 }}>
+                Our work environment is dynamic and collaborative, fostering
+                innovation and inclusivity. Key aspects include:
+              </Typography>
+              <Typography variant="body1" component="div" sx={{ mt: 2 }}>
+                <ul>
+                  <li>
+                    Dynamic Environment : Embracing change and encouraging new
+                    ideas.
+                  </li>
+                  <li>
+                    Collaborative Work : Promoting teamwork and open
+                    communication.
+                  </li>
+                  <li>
+                    Innovation : Supporting creativity and continuous
+                    improvement.
+                  </li>
+                  <li>
+                    Inclusivity : Ensuring a welcoming and diverse workplace.
+                  </li>
+                  <li>
+                    Community Involvement : Participating in and supporting
+                    community initiatives.
+                  </li>
+                </ul>
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} marginTop={3}>
-          <TestimonialComponent />
-        </Grid>
-        <Grid item xs={12} marginTop={3}></Grid>
       </Grid>
-    </Container>
+    </>
   );
 };
 

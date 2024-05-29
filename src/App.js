@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LandingPage from "./pages/Home";
@@ -42,6 +43,18 @@ const App = () => {
         <Route path="/Hosting" element={<HostingService />} />
         <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
+      <FloatingWhatsApp
+        className="floating-whatsapp-button"
+        allowEsc
+        allowClickAway
+        notification
+        notificationSound
+        avatar="https://anantsoftcomputing.com/jeegardesai/ASC.png"
+        chatMessage="Hi there 👋 How can I help you ?"
+        phoneNumber="9638544455"
+        statusMessage="Typically replies within a day"
+        accountName="Anant Soft Computing"
+      />
       <Footer />
     </Router>
   );
