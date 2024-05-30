@@ -26,8 +26,8 @@ const initialState = {
   name: "",
   email: "",
   phone: "",
-  appType: "",
-  additionalService: "",
+  app_type: "",
+  additional_services: "",
 };
 
 const MobileAppEnquiryForm = ({ handleClose }) => {
@@ -47,15 +47,15 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
 
   const validateAppSpecifications = () => {
     const appErrors = {};
-    if (!form.appType) appErrors.appType = "App type is required";
+    if (!form.app_type) appErrors.app_type = "App type is required";
     setErrors(appErrors);
     return Object.keys(appErrors).length === 0;
   };
 
-  const validateAdditionalServices = () => {
+  const validateadditional_servicess = () => {
     const additionalErrors = {};
-    if (!form.additionalService)
-      additionalErrors.additionalService = "Additional service is required";
+    if (!form.additional_services)
+      additionalErrors.additional_services = "Additional service is required";
     setErrors(additionalErrors);
     return Object.keys(additionalErrors).length === 0;
   };
@@ -75,7 +75,7 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
     } else if (activeStep === 1) {
       isValid = validateAppSpecifications();
     } else if (activeStep === 2) {
-      isValid = validateAdditionalServices();
+      isValid = validateadditional_servicess();
     }
 
     if (isValid) {
@@ -102,12 +102,12 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
     data.append("name", form.name);
     data.append("email", form.email);
     data.append("phone", form.phone);
-    data.append("appType", form.appType);
-    data.append("additionalService", form.additionalService);
+    data.append("app_type", form.app_type);
+    data.append("additional_services", form.additional_services);
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyp_KnOJASiVFNt8IOd4F14aNfe5_JjALw_Mdfvgz9PbrDd52IViv8Z4hNcfCFGICQJ/exec",
+        "https://newone.anantsoftcomputing.com/api/create-mobileapp-enquiry/",
         {
           method: "POST",
           body: data,
@@ -187,8 +187,8 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
               <FormControl component="fieldset">
                 <RadioGroup
                   row
-                  name="appType"
-                  value={form.appType}
+                  name="app_type"
+                  value={form.app_type}
                   onChange={handleChange}
                 >
                   <FormControlLabel
@@ -222,9 +222,9 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
                     label="Other"
                   />
                 </RadioGroup>
-                {errors.appType && (
+                {errors.app_type && (
                   <Typography variant="body2" color="error">
-                    {errors.appType}
+                    {errors.app_type}
                   </Typography>
                 )}
               </FormControl>
@@ -235,8 +235,8 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
               <FormControl component="fieldset">
                 <RadioGroup
                   row
-                  name="additionalService"
-                  value={form.additionalService}
+                  name="additional_services"
+                  value={form.additional_services}
                   onChange={handleChange}
                 >
                   <FormControlLabel
@@ -255,9 +255,9 @@ const MobileAppEnquiryForm = ({ handleClose }) => {
                     label="Payment Integration"
                   />
                 </RadioGroup>
-                {errors.additionalService && (
+                {errors.additional_services && (
                   <Typography variant="body2" color="error">
-                    {errors.additionalService}
+                    {errors.additional_services}
                   </Typography>
                 )}
               </FormControl>

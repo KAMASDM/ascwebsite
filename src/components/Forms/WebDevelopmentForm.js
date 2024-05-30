@@ -22,8 +22,8 @@ const initialState = {
   name: "",
   email: "",
   phone: "",
-  projectType: "",
-  additionalService: "",
+  project_type: "",
+  additional_services: "",
 };
 
 const WebDevelopmentForm = ({ handleClose }) => {
@@ -47,7 +47,7 @@ const WebDevelopmentForm = ({ handleClose }) => {
       if (!form.email.trim()) newErrors.email = "Email is required";
       if (!form.phone.trim()) newErrors.phone = "Phone is required";
     } else if (step === 1) {
-      if (!form.projectType) newErrors.projectType = "Project type is required";
+      if (!form.project_type) newErrors.project_type = "Project type is required";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -68,12 +68,12 @@ const WebDevelopmentForm = ({ handleClose }) => {
     data.append("name", form.name);
     data.append("email", form.email);
     data.append("phone", form.phone);
-    data.append("projectType", form.projectType);
-    data.append("additionalService", form.additionalService);
+    data.append("project_type", form.project_type);
+    data.append("additional_services", form.additional_services);
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxbKivT2d46sdxCruIxahIvnJRPnjKcppNQA23rVnm_htQu6NYRTtrsnOkpgTXU6cpuNw/exec",
+        "https://newone.anantsoftcomputing.com/api/create-webdevelopment-enquiry/",
         {
           method: "POST",
           body: data,
@@ -160,34 +160,34 @@ const WebDevelopmentForm = ({ handleClose }) => {
               <FormControl component="fieldset" margin="normal">
                 <RadioGroup
                   row
-                  name="projectType"
-                  value={form.projectType}
+                  name="project_type"
+                  value={form.project_type}
                   onChange={handleChange}
                 >
                   <FormControlLabel
-                    value="ecommerce"
+                    value="E-commerce"
                     control={<Radio />}
                     label="E-commerce"
                   />
                   <FormControlLabel
-                    value="business"
+                    value="Business Website"
                     control={<Radio />}
                     label="Business Website"
                   />
                   <FormControlLabel
-                    value="portfolio"
+                    value="Portfolio Website"
                     control={<Radio />}
                     label="Portfolio Website"
                   />
                   <FormControlLabel
-                    value="other"
+                    value="Other"
                     control={<Radio />}
                     label="Other"
                   />
                 </RadioGroup>
-                {errors.projectType && (
+                {errors.project_type && (
                   <Typography variant="body2" color="error">
-                    {errors.projectType}
+                    {errors.project_type}
                   </Typography>
                 )}
               </FormControl>
@@ -198,8 +198,8 @@ const WebDevelopmentForm = ({ handleClose }) => {
               <FormControl component="fieldset">
                 <RadioGroup
                   row
-                  name="additionalService"
-                  value={form.additionalService}
+                  name="additional_services"
+                  value={form.additional_services}
                   onChange={handleChange}
                 >
                   <FormControlLabel
