@@ -26,8 +26,8 @@ const initialState = {
   name: "",
   email: "",
   phone: "",
-  platformType: "",
-  additionalService: "",
+  e_commerce_type: "",
+  additional_features: "",
 };
 
 const ECommerceEnquiryForm = ({ handleClose }) => {
@@ -47,16 +47,16 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
 
   const validateECommerceDetails = () => {
     const eCommerceErrors = {};
-    if (!form.platformType)
-      eCommerceErrors.platformType = "Platform type is required";
+    if (!form.e_commerce_type)
+      eCommerceErrors.e_commerce_type = "Platform type is required";
     setErrors(eCommerceErrors);
     return Object.keys(eCommerceErrors).length === 0;
   };
 
   const validateAdditionalFeatures = () => {
     const additionalErrors = {};
-    if (!form.additionalService)
-      additionalErrors.additionalService = "Additional service is required";
+    if (!form.additional_features)
+      additionalErrors.additional_features = "Additional service is required";
     setErrors(additionalErrors);
     return Object.keys(additionalErrors).length === 0;
   };
@@ -103,12 +103,12 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
     data.append("name", form.name);
     data.append("email", form.email);
     data.append("phone", form.phone);
-    data.append("platformType", form.platformType);
-    data.append("additionalService", form.additionalService);
+    data.append("e_commerce_type", form.e_commerce_type);
+    data.append("additional_features", form.additional_features);
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxJPLfHRcl3_ZSl6e1LI-uJ_b2bV9uOlJd5nG-dFAPnygwjGiHImEeQuZLIrPHFOgy0oQ/exec",
+        "https://newone.anantsoftcomputing.com/api/create-ecommerce-enquiry/",
         {
           method: "POST",
           body: data,
@@ -187,9 +187,9 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
             <Box display="flex" justifyContent="center">
               <FormControl component="fieldset" margin="normal">
                 <RadioGroup
-                  aria-label="platformType"
-                  name="platformType"
-                  value={form.platformType}
+                  aria-label="e_commerce_type"
+                  name="e_commerce_type"
+                  value={form.e_commerce_type}
                   onChange={handleChange}
                   row
                 >
@@ -214,9 +214,9 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
                     label="Other"
                   />
                 </RadioGroup>
-                {errors.platformType && (
+                {errors.e_commerce_type && (
                   <Typography variant="body2" color="error">
-                    {errors.platformType}
+                    {errors.e_commerce_type}
                   </Typography>
                 )}
               </FormControl>
@@ -227,8 +227,8 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
               <FormControl component="fieldset">
                 <RadioGroup
                   row
-                  name="additionalService"
-                  value={form.additionalService}
+                  name="additional_features"
+                  value={form.additional_features}
                   onChange={handleChange}
                 >
                   <FormControlLabel
@@ -252,9 +252,9 @@ const ECommerceEnquiryForm = ({ handleClose }) => {
                     label="CRM Integration"
                   />
                 </RadioGroup>
-                {errors.additionalService && (
+                {errors.additional_features && (
                   <Typography variant="body2" color="error">
-                    {errors.additionalService}
+                    {errors.additional_features}
                   </Typography>
                 )}
               </FormControl>

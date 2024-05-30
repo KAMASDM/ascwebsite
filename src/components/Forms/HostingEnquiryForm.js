@@ -26,8 +26,8 @@ const initialState = {
   name: "",
   email: "",
   phone: "",
-  hostingType: "",
-  additionalService: "",
+  hosting_type: "",
+  additional_services: "",
 };
 
 const HostingEnquiryForm = ({ handleClose }) => {
@@ -47,16 +47,16 @@ const HostingEnquiryForm = ({ handleClose }) => {
 
   const validateHostingRequirements = () => {
     const hostingErrors = {};
-    if (!form.hostingType)
-      hostingErrors.hostingType = "Hosting type is required";
+    if (!form.hosting_type)
+      hostingErrors.hosting_type = "Hosting type is required";
     setErrors(hostingErrors);
     return Object.keys(hostingErrors).length === 0;
   };
 
-  const validateAdditionalServices = () => {
+  const validateadditional_servicess = () => {
     const additionalErrors = {};
-    if (!form.additionalService)
-      additionalErrors.additionalService = "Additional service is required";
+    if (!form.additional_services)
+      additionalErrors.additional_services = "Additional service is required";
     setErrors(additionalErrors);
     return Object.keys(additionalErrors).length === 0;
   };
@@ -76,7 +76,7 @@ const HostingEnquiryForm = ({ handleClose }) => {
     } else if (activeStep === 1) {
       isValid = validateHostingRequirements();
     } else if (activeStep === 2) {
-      isValid = validateAdditionalServices();
+      isValid = validateadditional_servicess();
     }
 
     if (isValid) {
@@ -103,12 +103,12 @@ const HostingEnquiryForm = ({ handleClose }) => {
     data.append("name", form.name);
     data.append("email", form.email);
     data.append("phone", form.phone);
-    data.append("hostingType", form.hostingType);
-    data.append("additionalService", form.additionalService);
+    data.append("hosting_type", form.hosting_type);
+    data.append("additional_services", form.additional_services);
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxgznUqqmUC9xsXaJuDjD2HkNf0zS8iKqm8Q8hmv0hOyLU2i_Glhc8MF5iBiSqCvA/exec",
+        "https://newone.anantsoftcomputing.com/api/create-hosting-enquiry/",
         {
           method: "POST",
           body: data,
@@ -188,8 +188,8 @@ const HostingEnquiryForm = ({ handleClose }) => {
               <FormControl component="fieldset" margin="normal">
                 <RadioGroup
                   row
-                  name="hostingType"
-                  value={form.hostingType}
+                  name="hosting_type"
+                  value={form.hosting_type}
                   onChange={handleChange}
                 >
                   <FormControlLabel
@@ -213,9 +213,9 @@ const HostingEnquiryForm = ({ handleClose }) => {
                     label="Cloud Hosting"
                   />
                 </RadioGroup>
-                {errors.hostingType && (
+                {errors.hosting_type && (
                   <Typography variant="body2" color="error">
-                    {errors.hostingType}
+                    {errors.hosting_type}
                   </Typography>
                 )}
               </FormControl>
@@ -226,8 +226,8 @@ const HostingEnquiryForm = ({ handleClose }) => {
               <FormControl component="fieldset">
                 <RadioGroup
                   row
-                  name="additionalService"
-                  value={form.additionalService}
+                  name="additional_services"
+                  value={form.additional_services}
                   onChange={handleChange}
                 >
                   <FormControlLabel
@@ -246,9 +246,9 @@ const HostingEnquiryForm = ({ handleClose }) => {
                     label="24/7 Support"
                   />
                 </RadioGroup>
-                {errors.additionalService && (
+                {errors.additional_services && (
                   <Typography variant="body2" color="error">
-                    {errors.additionalService}
+                    {errors.additional_services}
                   </Typography>
                 )}
               </FormControl>
